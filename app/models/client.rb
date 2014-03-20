@@ -4,5 +4,5 @@ class Client < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  # has_many :appointments
+  has_many :appointments
 end
