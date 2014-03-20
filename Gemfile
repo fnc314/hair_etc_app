@@ -32,6 +32,42 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+  gem 'better_errors'
+
+  gem 'binding_of_caller'
+
+  gem 'meta_request'
+
+  gem 'pry-byebug'
+
+  gem 'pry-rails'
+
+  gem 'awesome_print'
+
+  gem 'pry'
+
+  gem 'sqlite3'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+
+  gem 'launchy'
+  
+  gem 'database_cleaner'
+  
+  gem 'rb-fsevent'
+  
+  gem 'guard-rspec'
+end
+
+gem 'twilio-ruby'
+
+gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'rails_12factor', group: :production
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
