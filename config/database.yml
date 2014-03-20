@@ -19,8 +19,7 @@ development:
   encoding: unicode
   database: hair_etc_app_development
   pool: 5
-  username: hair_etc_app
-  password:
+  timeout: 5000
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +47,9 @@ test:
   encoding: unicode
   database: hair_etc_app_test
   pool: 5
-  username: hair_etc_app
-  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: hair_etc_app_production
   pool: 5
-  username: hair_etc_app
-  password:
