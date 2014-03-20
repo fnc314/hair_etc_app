@@ -1,4 +1,4 @@
 class Appserv < ActiveRecord::Base
-  belongs_to :appointments
-  belongs_to :services
+  belongs_to :appointment
+  belongs_to :service
 end

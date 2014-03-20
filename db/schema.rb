@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320050936) do
+ActiveRecord::Schema.define(version: 20140320210302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20140320050936) do
 
   add_index "appointments", ["client_id"], name: "index_appointments_on_client_id", using: :btree
   add_index "appointments", ["stylist_id"], name: "index_appointments_on_stylist_id", using: :btree
+
+  create_table "appservs", force: true do |t|
+    t.integer  "appointments_id"
+    t.integer  "services_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "appservs", ["appointments_id"], name: "index_appservs_on_appointments_id", using: :btree
+  add_index "appservs", ["services_id"], name: "index_appservs_on_services_id", using: :btree
 
   create_table "clients", force: true do |t|
     t.string   "first_name",             default: "", null: false
