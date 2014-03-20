@@ -3,13 +3,17 @@ HairEtcApp::Application.routes.draw do
   root to: 'clients#index'
   
   devise_for :clients
+
+  devise_scope :client do
+    get 'sign_in', :to => 'devise/sessions#new'
+    get 'sign_out', :to => 'devise/sessions#destroy'
+  end
   
   resources :clients do
     resources :appointments
   end
   
 end
-
 #                     Prefix Verb   URI Pattern                                         Controller#Action
 #                       root GET    /                                                   clients#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new
@@ -27,9 +31,8 @@ end
 #                            PATCH  /clients(.:format)                                  devise/registrations#update
 #                            PUT    /clients(.:format)                                  devise/registrations#update
 #                            DELETE /clients(.:format)                                  devise/registrations#destroy
-#        client_confirmation POST   /clients/confirmation(.:format)                     devise/confirmations#create
-#    new_client_confirmation GET    /clients/confirmation/new(.:format)                 devise/confirmations#new
-#                            GET    /clients/confirmation(.:format)                     devise/confirmations#show
+#                    sign_in GET    /sign_in(.:format)                                  devise/sessions#new
+#                   sign_out GET    /sign_out(.:format)                                 devise/sessions#destroy
 #        client_appointments GET    /clients/:client_id/appointments(.:format)          appointments#index
 #                            POST   /clients/:client_id/appointments(.:format)          appointments#create
 #     new_client_appointment GET    /clients/:client_id/appointments/new(.:format)      appointments#new
