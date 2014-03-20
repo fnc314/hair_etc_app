@@ -1,6 +1,7 @@
 HairEtcApp::Application.routes.draw do
-  devise_for :clients
   root to: 'clients#index'
+  devise_for :clients
+  resources :appointments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

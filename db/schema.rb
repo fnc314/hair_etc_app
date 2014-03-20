@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140320050936) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: true do |t|
-    t.datetime "appt_date_time"
+    t.datetime "appt_date_time", null: false
     t.integer  "client_id"
     t.integer  "stylist_id"
     t.datetime "created_at"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20140320050936) do
 
   create_table "services", force: true do |t|
     t.string   "name"
-    t.float    "price"
+    t.float    "price",      default: 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140320050936) do
   create_table "stylists", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone"
+    t.string   "phone",      default: "4127219550"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
