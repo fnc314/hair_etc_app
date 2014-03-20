@@ -1,0 +1,3 @@
+== Hair Etc App
+
+This is an evolved version of the previous HairEtcApp.  More to come...
