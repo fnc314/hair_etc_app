@@ -1,4 +1,5 @@
 HairEtcApp::Application.routes.draw do
+  
   root to: 'clients#index'
   
   devise_for :clients
