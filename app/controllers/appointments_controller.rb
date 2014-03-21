@@ -17,7 +17,7 @@ class AppointmentsController < ApplicationController
       new_appt["appt_date_time(3i)"].to_i,new_appt["appt_date_time(4i)"].to_i, new_appt["appt_date_time(5i)"].to_i)
     appt = current_client.appointments.create(:appt_date_time => a_d_t)
     new_appt["services"].each do |s|
-      appt.services.push(Service.find(s.to_i)) if s != ""
+      appt.services.push(Offering.find(s.to_i)) if s != ""
     end
     appt.stylist_id = new_appt["stylist"].to_i
     appt.save
@@ -48,7 +48,7 @@ class AppointmentsController < ApplicationController
     appt.appt_date_time = new_a_d_t
     appt.stylist_id = edited_appt_stylist["stylist"].to_i
     edited_appt_serv.each do |s|
-      appt.services.push(Service.find(s.to_i)) if s != ""
+      appt.services.push(Offering.find(s.to_i)) if s != ""
     end
     # Save appt
     appt.save

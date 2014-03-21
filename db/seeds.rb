@@ -32,3 +32,14 @@ Client.all.each do |c|
 end
 
 Client.create(first_name: "John", last_name: "Smith", email: "abc@def.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
+
+Appointment.all.each do |a|
+  a.destroy
+end
+
+date = DateTime.new(2014, 01, 07, 12, 00)
+a = Appointment.create(appt_date_time: date)
+a.client_id = 1
+a.stylist_id = 1
+a.offerings << Offering.find(3)
+a.offerings << Offering.find(4)

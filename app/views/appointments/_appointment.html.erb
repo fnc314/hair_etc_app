@@ -12,8 +12,8 @@
   <% end %> <br> <br>
 
   
-  <%= f.label :servs %> <br>
-  <%= collection_check_boxes :appointment, :servs, Service.all, :id, :name %>
+  <%= f.label "Services" %> <br>
+  <%= collection_check_boxes :appointment, :offering_ids, Offering.all, :id, :name %>
 
   <br> <br>
   <%= f.submit "Submit", class: 'btn' %>
