@@ -1,6 +1,6 @@
 HairEtcApp::Application.routes.draw do
   
-  root to: 'clients#index'
+  root to: 'home#index'
   
   devise_for :clients
 
@@ -15,7 +15,7 @@ HairEtcApp::Application.routes.draw do
   
 end
 #                     Prefix Verb   URI Pattern                                         Controller#Action
-#                       root GET    /                                                   clients#index
+#                       root GET    /                                                   home#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new
 #             client_session POST   /clients/sign_in(.:format)                          devise/sessions#create
 #     destroy_client_session DELETE /clients/sign_out(.:format)                         devise/sessions#destroy

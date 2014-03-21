@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
     appt.stylist_id = params[:stylist].to_i
     appt.save
     respond_to do |f|
-      f.html { client_appointments_path(current_client.id) }
+      f.html { redirect_to client_appointments_path(current_client.id) }
     end
 
   end

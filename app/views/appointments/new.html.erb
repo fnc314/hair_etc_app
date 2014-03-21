@@ -12,9 +12,7 @@
   <% end %> <br>
 
   <%= f.label :services, "Services" %> <br>
-  <%= collection_check_boxes(:appointment, :services, Service.all, :id, :name) do |s|
-    s.label { s.check_box(class: 'check_box') } 
-  end %>
+  <%= collection_check_boxes(:appointment, :services, Service.all, :id, :name) %>
 
   <br>
   <%= f.submit "Make Appointment", class: 'btn' %>
