@@ -1,0 +1,10 @@
+HOME PAGE <br> <br>
+
+<%= link_to "Sign In", new_client_session_path %>
+<br>
+<%= link_to "Sign Up", new_client_registration_path %>
+<br><br>
+<% if signed_in? %>
+<%= link_to "Sign Out", sign_out_path %><br>
+<%= link_to "New Appointment", new_client_appointment_path(current_client.id) %>
+<% end %>

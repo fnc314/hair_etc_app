@@ -1,0 +1,20 @@
+<h1>Appointments#new</h1>
+<p>Find me in app/views/appointments/new.html.erb</p>
+
+<%= form_for [current_client, @appointment] do |f| %>
+
+  <%= f.label "When?" %> <br>
+  <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, :minute_step => 30, :start_hour => 9, :end_hour => 20} %> <br>
+
+  <% Stylist.all.each do |x| %> <br>
+    <%= radio_button_tag(:stylist, "#{x.id}") %>
+    <%= f.label :stylist, "#{x.first_name}" %>
+  <% end %> <br>
+
+  <%= f.label :services, "Services" %> <br>
+  <%= collection_check_boxes(:appointment, :services, Service.all, :id, :name) %>
+
+  <br>
+  <%= f.submit "Make Appointment", class: 'btn' %>
+
+<% end %>
