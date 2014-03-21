@@ -1,6 +1,6 @@
-class CreateServices < ActiveRecord::Migration
+class CreateOfferings < ActiveRecord::Migration
   def change
-    create_table :services do |t|
+    create_table :offerings do |t|
       t.string :name
       t.float :price, default: 0.0
 

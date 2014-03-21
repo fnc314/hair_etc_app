@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320210302) do
+ActiveRecord::Schema.define(version: 20140321170344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appoffs", force: true do |t|
+    t.integer  "appointment_id"
+    t.integer  "offering_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "appoffs", ["appointment_id"], name: "index_appoffs_on_appointment_id", using: :btree
+  add_index "appoffs", ["offering_id"], name: "index_appoffs_on_offering_id", using: :btree
 
   create_table "appointments", force: true do |t|
     t.datetime "appt_date_time", null: false
@@ -26,16 +36,6 @@ ActiveRecord::Schema.define(version: 20140320210302) do
 
   add_index "appointments", ["client_id"], name: "index_appointments_on_client_id", using: :btree
   add_index "appointments", ["stylist_id"], name: "index_appointments_on_stylist_id", using: :btree
-
-  create_table "appservs", force: true do |t|
-    t.integer  "appointment_id"
-    t.integer  "service_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "appservs", ["appointment_id"], name: "index_appservs_on_appointment_id", using: :btree
-  add_index "appservs", ["service_id"], name: "index_appservs_on_service_id", using: :btree
 
   create_table "clients", force: true do |t|
     t.string   "first_name",             default: "", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140320210302) do
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
-  create_table "services", force: true do |t|
+  create_table "offerings", force: true do |t|
     t.string   "name"
     t.float    "price",      default: 0.0
     t.datetime "created_at"

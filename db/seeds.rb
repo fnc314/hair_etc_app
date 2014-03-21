@@ -15,17 +15,17 @@ Stylist.create(first_name: "Stacy", last_name: "Funwella", phone: "4127219550")
 Stylist.create(first_name: "Juneau", last_name: "Bowman")
 Stylist.create(first_name: "Sheri", last_name: "Humbert")
 
-Service.all.each do |s|
+Offering.all.each do |s|
   s.destroy
 end
 
-Service.create(name: "Cut/Style")
-Service.create(name: "Color")
-Service.create(name: "Hilights")
-Service.create(name: "Wax")
-Service.create(name: "Updo")
-Service.create(name: "Perm")
-Service.create(name: "Brazilian Blowout")
+Offering.create(name: "Cut/Style")
+Offering.create(name: "Color")
+Offering.create(name: "Hilights")
+Offering.create(name: "Wax")
+Offering.create(name: "Updo")
+Offering.create(name: "Perm")
+Offering.create(name: "Brazilian Blowout")
 
 Client.all.each do |c|
   c.destroy

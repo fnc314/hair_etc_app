@@ -4,6 +4,11 @@
 <% @appointments.each do |app| %>
 
 <div><%= app.appt_date_time %>
+  <br> <%= app.stylist.first_name if app.stylist != nil %>
+    <ul> <% app.services.each do |x| %>
+      <li> <%= x.name %> </li>
+    </ul>
+    <% end %>
 <br><%= link_to "Edit", edit_client_appointment_path(current_client.id, app.id) %>
 </div>
 
