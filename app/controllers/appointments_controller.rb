@@ -11,15 +11,20 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    new_appt = params.require(:appointment).permit(:appt_date_time, :services, :stylist)
+
+    new_appt = params.require(:appointment).permit(:appt_date_time, :offerings => [], :stylist)
     # Create appt_date_time value as a_d_t
     a_d_t = DateTime.new(new_appt["appt_date_time(1i)"].to_i,new_appt["appt_date_time(2i)"].to_i,
       new_appt["appt_date_time(3i)"].to_i,new_appt["appt_date_time(4i)"].to_i, new_appt["appt_date_time(5i)"].to_i)
+    # Make new appt
     appt = current_client.appointments.create(:appt_date_time => a_d_t)
-    new_appt["services"].each do |s|
-      appt.services.push(Offering.find(s.to_i)) if s != ""
+    # Scooping up desired offerings
+    new_appt["offerings"].each do |s|
+      appt.offerings.push(Offering.find(s.to_i)) if s != ""
     end
+    # Attached desired stylist
     appt.stylist_id = new_appt["stylist"].to_i
+    # Save appt
     appt.save
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }

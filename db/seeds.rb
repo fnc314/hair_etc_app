@@ -43,3 +43,4 @@ a.client_id = 1
 a.stylist_id = 1
 a.offerings << Offering.find(3)
 a.offerings << Offering.find(4)
+a.save
