@@ -24,11 +24,16 @@ class AppointmentsController < ApplicationController
     appt.save
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
+      f.json { render :json => current_client.appointments }
     end
 
   end
 
   def show
+    @appointment = current_client.appointments.find(params[:id])
+  end
+
+  def edit
     @appointment = current_client.appointments.find(params[:id])
   end
 

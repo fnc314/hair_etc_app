@@ -3,7 +3,9 @@
 
 <% @appointments.each do |app| %>
 
-<div><%= app.appt_date_time %></div>
+<div><%= app.appt_date_time %>
+<br><%= link_to "Edit", edit_client_appointment_path(current_client.id, app.id) %>
+</div>
 
 <% end %>
 
