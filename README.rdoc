@@ -1,3 +1,4 @@
 == Hair Etc App
 
-This is an evolved version of the previous [HairEtcApp](github.com/fnc314/Project1) . More to come…
+This is an evolved version of the previous [HairEtcApp](https://github.com/fnc314/Project1) .  More to come...
+
