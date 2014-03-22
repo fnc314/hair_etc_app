@@ -18,9 +18,10 @@ class AppointmentsController < ApplicationController
       new_appt["appt_date_time(3i)"].to_i,new_appt["appt_date_time(4i)"].to_i, new_appt["appt_date_time(5i)"].to_i)
     # Make new appt
     appt = current_client.appointments.create(:appt_date_time => a_d_t)
-    # Scooping up desired offerings
-    new_appt["offering_ids"].each do |s|
-      appt.offering_ids.push(s.to_i) if s != ""
+    # extraneous empty string proveded by collection_check_boxes
+    new_appt["offering_ids"].delete("")
+    appt.offering_ids = new_appt["offering_ids"].map do |o|
+      o.to_i
     end
     # Attached desired stylist
     appt.stylist_id = new_appt["stylist_id"].to_i
