@@ -3,17 +3,32 @@
 
   <%= f.label "When?" %> <br>
   <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, 
-    :minute_step => 30, :start_hour => 9, :end_hour => 20} %> <br> <br>
+    :minute_step => 30, :start_hour => 9, :end_hour => 20 } %> <br> <br>
 
-  <%= f.label "Stylist" %> 
-  <% Stylist.all.each do |s| %> <br>
-    <%= f.radio_button(:stylist, "#{s.id}") %>
-    <%= f.label :stylist, "#{s.first_name}" %>
+  <%= f.label "Stylist" %>
+  <% if !@appointment.stylist %>
+    <% Stylist.all.each do |s| %> <br>
+      <%= f.radio_button(:stylist, "#{s.id}") %>
+      <%= f.label :stylist, "#{s.first_name}" %>
+    <% end %>
+  <% else %> 
+    <% Stylist.all.each do |s| %> <br>
+      <% if s.id = @appointment.stylist_id %>
+        <%= f.radio_button(:stylist, :id, { checked: true }) %>
+        <%= f.label "#{s.first_name}" %>
+      <% else %>
+        <%= f.radio_button(:stylist, :id) %>
+        <%= f.label "#{s.first_name}" %>
+      <% end %>
+    <% end %>
   <% end %> <br> <br>
-
   
   <%= f.label "Services" %> <br>
-  <%= collection_check_boxes :appointment, :offerings, Offering.all, :id, :name %>
+    <% Offering.all.each do |o| %>
+      <%= f.check_box(:id, checked_value = "#{o.id}") %>
+      <%= f.label "#{o.name}" %>
+    <% end %>
+  <br>
 
   <br> <br>
   <%= f.submit "Submit", class: 'btn' %>

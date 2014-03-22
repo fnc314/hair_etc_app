@@ -8,11 +8,12 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = current_client.appointments.new
+    @offering = Offering.all
   end
 
   def create
 
-    new_appt = params.require(:appointment).permit(:appt_date_time, :offerings => [], :stylist)
+    new_appt = params.require(:appointment).permit! #.permit(:appt_date_time, :offerings, :stylist)
     # Create appt_date_time value as a_d_t
     a_d_t = DateTime.new(new_appt["appt_date_time(1i)"].to_i,new_appt["appt_date_time(2i)"].to_i,
       new_appt["appt_date_time(3i)"].to_i,new_appt["appt_date_time(4i)"].to_i, new_appt["appt_date_time(5i)"].to_i)
@@ -39,21 +40,25 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = current_client.appointments.find(params[:id])
+    @offerings = Offering.all
   end
 
   def update
+
     appt = current_client.appointments.find(params[:id])
     # Mimic format of create function
-    edited_appt_serv = params.require(:appointment).permit(:services)
-    edited_appt_stylist = params.require(:appointment).permit(:stylist)
-    edited_appt = params.require(:appointment).permit(:appt_date_time)
+    edited_appt = params.require(:appointment).permit!
     # Create appt_date_time value as new_a_d_t
     new_a_d_t = DateTime.new(edited_appt["appt_date_time(1i)"].to_i,edited_appt["appt_date_time(2i)"].to_i,
       edited_appt["appt_date_time(3i)"].to_i,edited_appt["appt_date_time(4i)"].to_i, edited_appt["appt_date_time(5i)"].to_i)
     appt.appt_date_time = new_a_d_t
-    appt.stylist_id = edited_appt_stylist["stylist"].to_i
-    edited_appt_serv.each do |s|
-      appt.services.push(Offering.find(s.to_i)) if s != ""
+    appt.stylist_id = edited_appt["stylist"].to_i
+    appt.offerings = []
+    edited_appt["offerings"].each do |s|
+      unless s == ""
+        s = Offering.find(s.to_i)
+        appt.offerings.push(s)
+      end
     end
     # Save appt
     appt.save
