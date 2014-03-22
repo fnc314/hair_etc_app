@@ -8,7 +8,6 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = current_client.appointments.new
-    @offering = Offering.all
   end
 
   def create
@@ -20,11 +19,11 @@ class AppointmentsController < ApplicationController
     # Make new appt
     appt = current_client.appointments.create(:appt_date_time => a_d_t)
     # Scooping up desired offerings
-    new_appt["offerings"].each do |s|
-      appt.offerings.push(Offering.find(s.to_i)) if s != ""
+    new_appt["offering_ids"].each do |s|
+      appt.offering_ids.push(s.to_i) if s != ""
     end
     # Attached desired stylist
-    appt.stylist_id = new_appt["stylist"].to_i
+    appt.stylist_id = new_appt["stylist_id"].to_i
     # Save appt
     appt.save
     respond_to do |f|
@@ -40,7 +39,6 @@ class AppointmentsController < ApplicationController
 
   def edit
     @appointment = current_client.appointments.find(params[:id])
-    @offerings = Offering.all
   end
 
   def update
@@ -52,13 +50,11 @@ class AppointmentsController < ApplicationController
     new_a_d_t = DateTime.new(edited_appt["appt_date_time(1i)"].to_i,edited_appt["appt_date_time(2i)"].to_i,
       edited_appt["appt_date_time(3i)"].to_i,edited_appt["appt_date_time(4i)"].to_i, edited_appt["appt_date_time(5i)"].to_i)
     appt.appt_date_time = new_a_d_t
-    appt.stylist_id = edited_appt["stylist"].to_i
-    appt.offerings = []
-    edited_appt["offerings"].each do |s|
-      unless s == ""
-        s = Offering.find(s.to_i)
-        appt.offerings.push(s)
-      end
+    appt.stylist_id = edited_appt["stylist_id"].to_i
+    # extraneous empty string proveded by collection_check_boxes
+    edited_appt["offering_ids"].delete("")
+    appt.offering_ids = edited_appt["offering_ids"].map do |o|
+      o.to_i
     end
     # Save appt
     appt.save
@@ -70,6 +66,11 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
+    current_client.appointments.find(params[:id]).destroy
+    respond_to do |f|
+      f.html { redirect_to client_appointments_path(current_client.id) }
+      f.json { render :json => current_client.appointments }
+    end
   end
 
 end
