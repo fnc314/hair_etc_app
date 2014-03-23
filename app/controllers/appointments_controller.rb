@@ -48,6 +48,7 @@ class AppointmentsController < ApplicationController
   def update
 
     appt = current_client.appointments.find(params[:id])
+    text_stylist_edit(current_client, appt)
     # Mimic format of create function
     edited_appt = params.require(:appointment).permit!
     # Create appt_date_time value as new_a_d_t
