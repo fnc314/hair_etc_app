@@ -1,8 +1,8 @@
 class AppointmentsController < ApplicationController
   
+  include AppointmentsHelper
+  
   before_filter :authenticate_client!
-
-  require AppointmentsHelper
 
   def index
     @appointments = current_client.appointments.includes(:stylist).order("created_at DESC").to_a
@@ -29,6 +29,7 @@ class AppointmentsController < ApplicationController
     appt.stylist_id = new_appt["stylist_id"].to_i
     # Save appt
     appt.save
+    text_stylist_create(current_client, appt)
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => current_client.appointments }
