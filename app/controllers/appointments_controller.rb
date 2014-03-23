@@ -70,7 +70,9 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    current_client.appointments.find(params[:id]).destroy
+    appt = current_client.appointments.find(params[:id])
+    text_stylist_delete(current_client, appt)
+    appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => current_client.appointments }
