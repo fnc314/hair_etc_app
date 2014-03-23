@@ -1,19 +1,28 @@
 <h1 class="text-center"><%= current_client.first_name %> <%= current_client.last_name %>'s Appointments</h1>
-<p>Find me in app/views/appointments/index.html.erb</p><br>
+
 <%= link_to "New Appointment", new_client_appointment_path(current_client.id) %>
+
 <% @appointments.each do |app| %>
 
 <div class="appt_index">
-  <h4>When: </h4><h6><%= app.appt_date_time%></h6>
-  <h4>Stylist: </h4><h6><%= app.stylist.first_name %></h6>
-  <h4>Services: <h4>
-    <ul> <% app.offerings.each do |off| %>
+  <dl>
+    <dt>When:</dt>
+    <dd><%= app.appt_date_time%></dd>
+    <dt>Stylist:</dt>
+    <dd><%= app.stylist.first_name %></dd>
+    <dt>Services:</dt>
+    <ul class="list-inline"> <% app.offerings.each do |off| %>
       <li> <%= off.name %> </li>
       <% end %>
     </ul>
-  <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id) %>
-  <%= button_to "Delete", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete' %>
+
+  <div class="buttons">
+    <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id) , method: 'get', class: "btn btn-primary btn-lg button_edit" %>
+    <%= button_to "Delete", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger button_delete" %>
+  </div>
+
 </div>  <!-- End of repeated div -->
+
 
 <% end %>
 

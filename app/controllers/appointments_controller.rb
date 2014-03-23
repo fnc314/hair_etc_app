@@ -2,6 +2,8 @@ class AppointmentsController < ApplicationController
   
   before_filter :authenticate_client!
 
+  require AppointmentsHelper
+
   def index
     @appointments = current_client.appointments.includes(:stylist).order("created_at DESC").to_a
   end
