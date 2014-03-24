@@ -9,7 +9,7 @@ module AppointmentsHelper
     @client.account.sms.messages.create(
       :from => ENV['TWILIO_PHONE'],
       :to => appt.stylist.phone,
-      :body => "#{current_client.first_name} #{current_client.last_name} wants to schedule an appointment on #{a_d_t} for #{appt.offering_ids}.  Please call #{current_client.phone}.")
+      :body => "#{current_client.first_name} #{current_client.last_name} wants to schedule an appointment on #{a_d_t} for #{offerings(appt)}.  Please call #{current_client.phone}.")
 
   end
 
@@ -37,6 +37,14 @@ module AppointmentsHelper
       :to => appt.stylist.phone,
       :body => "#{current_client.first_name} #{current_client.last_name} cancelled their appointment on #{a_d_t}.  Please call #{current_client.phone}.")
 
+  end
+
+  def offerings(appt)
+    offerings = ""
+    appt.offering_ids.each do |i|
+      offerings += Offering.find(i).name + " "
+    end
+    return offerings
   end
 
 end
