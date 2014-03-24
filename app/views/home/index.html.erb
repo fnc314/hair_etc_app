@@ -1,14 +1,16 @@
 <div class="homePage">
   <h1 id="welcomeBanner"> Welcome to Hair Etc... </h1>
   <% if !signed_in? %>
-  <h6>What would you like to do?</h6>
+  
+    <h6 class="text-center">What would you like to do?</h6>
     <%= button_to "Sign Up!", new_client_registration_path, class: "btn btn-block btn-success" %>
     <%= button_to "Sign In!", new_client_session_path, class: "btn btn-block btn-primary" %>
+
+  <% else %>
+
+    <%= render 'signedin' %>
+
   <% end %>
-
-  
-
-
 
 
 

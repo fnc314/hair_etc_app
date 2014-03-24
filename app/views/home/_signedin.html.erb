@@ -1,0 +1,15 @@
+<h6>Hello <%= current_client.first_name %>!<br>Here is your most recently edited appointment:</h6>
+<dl class="apptIndexContents">
+<dt>When:</dt>
+<dd><%= @appointment.appt_date_time %></dd>
+<dt>Stylist:</dt>
+<dd><%= @appointment.stylist.first_name %></dd>
+<dt>Services:</dt>
+<ul class="list-inline"> <% @appointment.offerings.each do |off| %>
+  <li> <%= off.name %> </li>
+  <% end %>
+</ul></dl>
+
+<h6>From here you can:</h6>
+  <%= button_to "edit this appointment", edit_client_appointment_path(current_client.id, @appointment.id) , method: 'get', class: "btn btn-primary btn-lg btn-block" %>
+  <%= button_to "cancel this appointment", "/clients/#{current_client.id}/appointments/#{@appointment.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
