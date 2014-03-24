@@ -37,12 +37,13 @@ Client.all.each do |c|
 end
 
 Client.create(first_name: "John", last_name: "Smith", email: "abc@def.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
+Client.create(first_name: "Rebecca", last_name: "Jones", email: "example@example.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
 
 Appointment.all.each do |a|
   a.destroy
 end
 
-(1..15).each do
+(1..20).each do
 
   month = (1..12).to_a.sample
   if month == 2
@@ -55,18 +56,23 @@ end
   hour = (9..20).to_a.sample
   minute = [00, 30].sample
   date = DateTime.new(2014, month, day, hour, minute)
-  stylist_count = Stylist.count
-  stylist_id = (1..stylist_count).to_a.sample
-  a = Appointment.new(appt_date_time: date, client_id: 1, stylist_id: stylist_id)
-  off_count = Offering.count
-  off = (1..off_count).to_a
+  stylist_id = (1..Stylist.count).to_a.sample
+  client_id = [1,2].sample
+  a = Appointment.new(appt_date_time: date, client_id: client_id, stylist_id: stylist_id)
+  off = (1..Offering.count).to_a
   off1 = off.sample
   off2 = off.sample
-  if off1 != off2
+  off3 = off.sample
+  if off1 != off2 && off1 != off3 && off3 != off2
+    a.offerings.push(Offering.find(off1))
+    a.offerings.push(Offering.find(off2))
+    a.offerings.push(Offering.find(off3))
+  elsif off1 != off2 && off2 != off3
     a.offerings.push(Offering.find(off1))
     a.offerings.push(Offering.find(off2))
   else
-    a.offerings.push(Offering.find(off1))
+    offering = ((off1+off2+off3)/3.0).round
+    a.offerings.push(Offering.find(offering))
   end
   a.save
 
