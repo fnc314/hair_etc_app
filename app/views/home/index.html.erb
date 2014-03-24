@@ -1,10 +1,16 @@
-HOME PAGE<br>
+<div class="homePage">
+  <h1 id="welcomeBanner"> Welcome to Hair Etc... </h1>
+  <% if !signed_in? %>
+  <h6>What would you like to do?</h6>
+    <%= button_to "Sign Up!", new_client_registration_path, class: "btn btn-block btn-success" %>
+    <%= button_to "Sign In!", new_client_session_path, class: "btn btn-block btn-primary" %>
+  <% end %>
 
-<% if signed_in? %>
-<%= link_to "Sign Out", sign_out_path %><br>
-<%= link_to "New Appointment", new_client_appointment_path(current_client.id) %>
-<% else %>
-<%= link_to "Sign In", new_client_session_path %>
-<br>
-<%= link_to "Sign Up", new_client_registration_path %>
-<% end %>
+  
+
+
+
+
+
+
+</div>  <!-- WelcomePageDiv -->
