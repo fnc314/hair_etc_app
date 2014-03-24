@@ -3,8 +3,8 @@
   <% if !signed_in? %>
   
     <h6 class="text-center">What would you like to do?</h6>
-    <%= button_to "Sign Up!", new_client_registration_path, class: "btn btn-block btn-success" %>
-    <%= button_to "Sign In!", new_client_session_path, class: "btn btn-block btn-primary" %>
+    <%= button_to "Sign Up!", new_client_registration_path, method: 'get', class: "btn btn-block btn-success" %> <br>
+    <%= button_to "Sign In!", new_client_session_path, method: 'get', class: "btn btn-block btn-primary" %>
 
   <% else %>
 
