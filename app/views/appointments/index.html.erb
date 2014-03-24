@@ -23,8 +23,8 @@
       </ul></dl>
 
     <div class="buttons">
-      <%= button_to "Edit this appointment", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block" %>
-      <%= button_to "Cancel this appointment", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
+      <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block" %>
+      <%= button_to "Cancel", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
     </div>
 
   </div>  <!-- End of repeated div -->

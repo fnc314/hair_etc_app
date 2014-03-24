@@ -4,11 +4,11 @@
   <div class="apptForm text-center">
     <%= f.label "When?" %> <br>
     <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, 
-      :minute_step => 30, :start_hour => 9, :end_hour => 20 }, { class: 'form-control'} %>
+      :minute_step => 30, :start_hour => 9, :end_hour => 20 } %>
   </div>
 
   <div class="apptForm">
-    <%= f.label "Choose Your Stylist", class: "text-center" %> <br>
+    <%= f.label "Choose Your Stylist", class: 'stylistSelectLabel' %> <br>
     <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name) do |b|
       b.label(class: 'radio') { b.radio_button + ' ' + b.text }
     end

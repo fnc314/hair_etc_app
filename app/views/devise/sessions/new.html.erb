@@ -26,7 +26,7 @@
 
   <div class="inputDevise">
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <%= button_to "Forgot your password?", new_client_password_path, method: 'get', class: 'btn btn-block btn-primary' %>
+      <%= button_to "Forgot your password?", new_client_password_path, method: 'get', class: 'btn btn-block btn-link' %>
     <% end -%>
   </div>
 
