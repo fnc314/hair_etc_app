@@ -84,4 +84,12 @@ gem 'dotenv-rails'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-ruby "2.1.0"
+ruby "2.1.1"
+
+# group :development, :test do
+#   ruby "2.1.1"
+# end
+
+# group :production do
+#   ruby "2.1.0"
+# end
