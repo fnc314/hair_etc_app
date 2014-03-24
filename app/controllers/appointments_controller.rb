@@ -13,11 +13,13 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    new_appt = params.require(:appointment).permit!
-    # used .permit! to override issues with collection_check_boxes/collection_radio_buttons
+    new_appt = params.require(:appointment).permit(:stylist_id, :offering_ids => [])
+    # Fixed issue with permit
+    new_appt_datetime = params.require(:date).permit(:year, :month, :day, :hour, :minute)
+    # extract new form for datetime from params <- stronger form than before
     # Create appt_date_time value as a_d_t
-    a_d_t = DateTime.new(new_appt["appt_date_time(1i)"].to_i,new_appt["appt_date_time(2i)"].to_i,
-      new_appt["appt_date_time(3i)"].to_i,new_appt["appt_date_time(4i)"].to_i, new_appt["appt_date_time(5i)"].to_i)
+    a_d_t = DateTime.new(new_appt_datetime["year"].to_i,new_appt_datetime["month"].to_i,
+      new_appt_datetime["day"].to_i,new_appt_datetime["hour"].to_i, new_appt_datetime["minute"].to_i)
     # Make new appt
     appt = current_client.appointments.create(:appt_date_time => a_d_t)
     # extraneous empty string proveded by collection_check_boxes
@@ -54,11 +56,13 @@ class AppointmentsController < ApplicationController
     # will use to determine exactly which appointment is being edited
     text_stylist_edit(current_client, appt)
     # Mimic format of create function
-    edited_appt = params.require(:appointment).permit!
-    # used .permit! to override issues with collection_check_boxes/collection_radio_buttons
+    # Fixed issue with permit
+    edited_appt = params.require(:appointment).permit(:stylist_id, :offering_ids => [])
+    # extract new form for datetime from params <- stronger form
+    edited_appt_datetime = params.require(:date).permit(:year, :month, :day, :hour, :minute)
     # Create appt_date_time value as new_a_d_t
-    new_a_d_t = DateTime.new(edited_appt["appt_date_time(1i)"].to_i,edited_appt["appt_date_time(2i)"].to_i,
-      edited_appt["appt_date_time(3i)"].to_i,edited_appt["appt_date_time(4i)"].to_i, edited_appt["appt_date_time(5i)"].to_i)
+    new_a_d_t = DateTime.new(edited_appt_datetime["year"].to_i,edited_appt_datetime["month"].to_i,
+      edited_appt_datetime["day"].to_i,edited_appt_datetime["hour"].to_i, edited_appt_datetime["minute"].to_i)
     appt.appt_date_time = new_a_d_t
     appt.stylist_id = edited_appt["stylist_id"].to_i
     # extraneous empty string proveded by collection_check_boxes
