@@ -2,7 +2,9 @@
 
   <h1 class="text-center"><%= current_client.first_name %> <%= current_client.last_name %>'s Appointments</h1>
 
-  <%= link_to "New Appointment", new_client_appointment_path(current_client.id) %>
+  <div class="apptAdd">
+    <%= button_to "New Appointment", new_client_appointment_path(current_client.id), class: 'btn btn-block btn-success' %>
+  </div>
 
   <% @appointments.each do |app| %>
 

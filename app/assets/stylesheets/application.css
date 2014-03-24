@@ -11,6 +11,10 @@
  *= require_self
  *= require_tree .
  */
+html {
+  background-color: #B0E2FF;
+}
+
 .apptIndex {
   margin-left: 25%;
   margin-right: 25%;
@@ -24,6 +28,15 @@
 
 .apptIndexContents {
   margin-bottom: 10px;
+}
+
+.apptAdd {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .clientIndex {
@@ -63,4 +76,17 @@
 
 .deviseForm {
   margin-top: -21px;
+}
+
+.newApptForm {
+  margin-top: -21px;
+}
+
+.apptForm {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
 }

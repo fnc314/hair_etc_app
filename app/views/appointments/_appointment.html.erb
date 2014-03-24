@@ -1,17 +1,25 @@
 
-<%= form_for [current_client, @appointment] do |f| %>
+  <%= form_for [current_client, @appointment] do |f| %>
 
-  <%= f.label "When?" %> <br>
-  <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, 
-    :minute_step => 30, :start_hour => 9, :end_hour => 20 } %> <br> <br>
+    <div class="apptForm text-center">
+      <%= f.label "When?" %> <br>
+      <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, 
+        :minute_step => 30, :start_hour => 9, :end_hour => 20 } %>
+    </div>
 
-  <%= f.label "Choose Your Stylist" %> <br>
-  <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name)%>
-  <br>
-  
-  <%= f.label "Choose Your Services" %> <br>
-  <%= f.collection_check_boxes :offering_ids, Offering.all, :id, :name %>
-  <br> <br>
-  <%= f.submit "Submit", class: 'btn btn-success btn-lg' %>
+    <div class="apptForm text-center">
+      <%= f.label "Choose Your Stylist" %> <br>
+      <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name)%>
+    </div>
+    
+    <div class="apptForm">
+      <%= f.label "Choose Your Services" %> <br>
+      <%= f.collection_check_boxes :offering_ids, Offering.all, :id, :name %>
+    </div>
+    
+    <div class="apptForm">
+      <%= f.submit "Submit", class: 'btn btn-success btn-block' %>
+    </div>
 
-<% end %>
+  <% end %>
+

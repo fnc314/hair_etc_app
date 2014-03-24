@@ -4,7 +4,7 @@ module AppointmentsHelper
 
     @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
 
-    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p")
+    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at%l:%M %p")
 
     @client.account.sms.messages.create(
       :from => ENV['TWILIO_PHONE'],
@@ -17,7 +17,7 @@ module AppointmentsHelper
 
     @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
 
-    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p")
+    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at%l:%M %p")
 
     @client.account.sms.messages.create(
       :from => ENV['TWILIO_PHONE'],
@@ -30,7 +30,7 @@ module AppointmentsHelper
 
     @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']
 
-    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p")
+    a_d_t = appt.appt_date_time.strftime("%a. %b. %d %Y at%l:%M %p")
 
     @client.account.sms.messages.create(
       :from => ENV['TWILIO_PHONE'],
