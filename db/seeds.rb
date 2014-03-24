@@ -44,3 +44,8 @@ a.stylist_id = 1
 a.offerings << Offering.find(3)
 a.offerings << Offering.find(4)
 a.save
+b = Appointment.create(appt_date_time: DateTime.new(2014, 05, 30, 9, 00))
+b.client_id = 1
+b.stylist_id = 3
+a.offering_ids = [2, 4, 5]
+b.save
