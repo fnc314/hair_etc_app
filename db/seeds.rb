@@ -9,9 +9,9 @@ Stylist.all.each do |s|
   s.destroy
 end
 
-Stylist.create(first_name: "Theresa", last_name: "Colaizzi", phone: "4127219550")
-Stylist.create(first_name: "Chrissy", last_name: "West", phone: "4127219550")
-Stylist.create(first_name: "Stacy", last_name: "Funwella", phone: "4127219550")
+Stylist.create(first_name: "Theresa", last_name: "Colaizzi")
+Stylist.create(first_name: "Chrissy", last_name: "West")
+Stylist.create(first_name: "Stacy", last_name: "Funwella")
 Stylist.create(first_name: "Juneau", last_name: "Bowman")
 Stylist.create(first_name: "Sheri", last_name: "Humbert")
 
@@ -55,7 +55,11 @@ end
   off = (1..7).to_a
   off1 = off.sample
   off2 = off.sample
-  a.offering_ids = [off1, off2]
+  if off1 != off2
+    a.offering_ids = [off1, off2]
+  else
+    a.offering_ids = [off1]
+  end
   a.save
 
 end
