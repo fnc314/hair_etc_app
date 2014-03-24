@@ -1,31 +1,33 @@
-<div class="signInForm">
+<div class="deviseForm">
 
   <h2 class="text-center">Sign in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
-    <div class="inputSignIn">
+    <div class="inputDevise">
       <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email" %>
     </div>
 
-    <div class="inputSignIn">
+    <div class="inputDevise">
       <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
     </div>
 
     <% if devise_mapping.rememberable? -%>
-      <div class="inputSignIn">
+      <div class="inputDevise">
         <%= f.check_box :remember_me %> <%= f.label :remember_me %>
       </div>
     <% end -%>
 
-    <div class="inputSignIn">
+    <div class="inputDevise">
       <%= f.submit "Sign in", class: "btn btn-block btn-success" %>
     </div>
 
   <% end %>
 
-  <div class="inputSignIn">
-    <%= button_to "Forgot Password", new_password_path(resource_name), class: 'btn btn-block btn-primary' %>
+  <div class="inputDevise">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= button_to "Forgot your password?", new_client_password_path, method: 'get', class: 'btn btn-block btn-primary' %>
+    <% end -%>
   </div>
 
 </div> <!-- signInForm -->

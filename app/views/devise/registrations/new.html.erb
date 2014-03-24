@@ -1,39 +1,39 @@
-<div class="signUpForm">
+<div class="deviseForm">
 
 <h2 class="text-center">Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="inputSignUp">
-    <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.text_field :first_name, autofocus: true, class: 'form-control', placeholder: "First Name" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.telephone_field :phone, class: 'form-control', placeholder: "Phone" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.telephone_field :phone, class: 'form-control', placeholder: "Phone" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password (Minimum 8 Characters)" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password (Minimum 8 Characters)" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirm Password" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirm Password" %>
+    </div>
 
-  <div class="inputSignUp">
-    <%= f.submit "Join the Family!", class: "btn btn-block btn-primary" %>
-  </div>
+    <div class="inputDevise">
+      <%= f.submit "Join the Family!", class: "btn btn-block btn-primary" %>
+    </div>
 
-<% end %>
+  <% end %>
 
 
 </div>  <!-- signUpForm -->
