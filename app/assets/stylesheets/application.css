@@ -75,7 +75,7 @@ html {
 
 .apptForm {
   margin: 0 25% 10px 25%;
-  padding: 2.5px 2% 2.5px 2%;
+  padding: 2.5px 2% 5px 2%;
   border-radius: 25px;
   background-color: white;
 }
@@ -97,4 +97,8 @@ html {
 .inputLabel {
   display: block;
   text-align: center;
+}
+
+.inputLabelStylistServices {
+  margin-bottom: -5px;
 }
