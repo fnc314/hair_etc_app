@@ -39,6 +39,8 @@ module AppointmentsHelper
 
   end
 
+  # Method used to extract all of an appointments attached Offerings and display
+  # the string of names in text message to stylist.
   def offerings(appt)
     offerings = ""
     appt.offering_ids.each do |i|
