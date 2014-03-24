@@ -11,18 +11,86 @@
  *= require_self
  *= require_tree .
  */
-.appt_index {
+html {
+  background-color: #B0E2FF;
+}
+
+.apptIndex {
   margin-left: 25%;
   margin-right: 25%;
   margin-bottom: 10px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
   height: auto;
-  border-style: solid;
   border-radius: 25px;
   position: absolute center;
+  background-color: white;
+}
+
+.apptIndexContents {
+  margin-bottom: 10px;
+}
+
+.apptAdd {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.clientIndex {
+  margin-top: -21px;
+}
+
+.container-fluid {
+  background-color: #B0E2FF;
 }
 
 .buttons {
   text-align: center;
-  margin-top: 10px;
+}
+
+#welcomeBanner {
+  text-align: center;
+}
+
+.homePage {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  margin-top: -21px;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+}
+
+.inputDevise {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.deviseForm {
+  margin-top: -21px;
+}
+
+.outerApptForm {
+  margin-top: -21px;
+}
+
+.apptForm {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.stylistSelectLabel {
+  text-align: center;
 }
