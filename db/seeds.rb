@@ -14,6 +14,7 @@ Stylist.create(first_name: "Chrissy", last_name: "West")
 Stylist.create(first_name: "Stacy", last_name: "Funwella")
 Stylist.create(first_name: "Juneau", last_name: "Bowman")
 Stylist.create(first_name: "Sheri", last_name: "Humbert")
+Stylist.create(first_name: "Krista", last_name: "Vrana")
 
 Offering.all.each do |s|
   s.destroy
@@ -21,11 +22,15 @@ end
 
 Offering.create(name: "Cut/Style")
 Offering.create(name: "Color")
+Offering.create(name: "Partial Color")
 Offering.create(name: "Hilights")
+Offering.create(name: "Partial Hilights")
 Offering.create(name: "Wax")
 Offering.create(name: "Updo")
 Offering.create(name: "Perm")
 Offering.create(name: "Brazilian Blowout")
+Offering.create(name: "Extensions")
+
 
 Client.all.each do |c|
   c.destroy
@@ -50,9 +55,11 @@ end
   hour = (9..20).to_a.sample
   minute = [00, 30].sample
   date = DateTime.new(2014, month, day, hour, minute)
-  stylist_id = (1..5).to_a.sample
+  stylist_count = Stylist.count
+  stylist_id = (1..stylist_count).to_a.sample
   a = Appointment.new(appt_date_time: date, client_id: 1, stylist_id: stylist_id)
-  off = (1..7).to_a
+  off_count = Offering.count
+  off = (1..off_count).to_a
   off1 = off.sample
   off2 = off.sample
   if off1 != off2
