@@ -61,3 +61,16 @@
 .signUpForm {
   margin-top: -21px;
 }
+
+.inputSignIn {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 10px;
+  padding: 1px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.signInForm {
+  margin-top: -21px;
+}
