@@ -37,15 +37,25 @@ Appointment.all.each do |a|
   a.destroy
 end
 
-date = DateTime.new(2014, 01, 07, 12, 00)
-a = Appointment.create(appt_date_time: date)
-a.client_id = 1
-a.stylist_id = 1
-a.offerings << Offering.find(3)
-a.offerings << Offering.find(4)
-a.save
-b = Appointment.create(appt_date_time: DateTime.new(2014, 05, 30, 9, 00))
-b.client_id = 1
-b.stylist_id = 3
-a.offering_ids = [2, 4, 5]
-b.save
+(1..15).each do
+
+  month = (1..12).to_a.sample
+  if month == 2
+    day = (1..28).to_a.sample
+  elsif [1,3,5,7,8,10,12].include?(month)
+    day = (1..31).to_a.sample
+  else
+    day = (1..30).to_a.sample
+  end
+  hour = (9..20).to_a.sample
+  minute = [00, 30].sample
+  date = DateTime.new(2014, month, day, hour, minute)
+  stylist_id = (1..5).to_a.sample
+  a = Appointment.new(appt_date_time: date, client_id: 1, stylist_id: stylist_id)
+  off = (1..7).to_a
+  off1 = off.sample
+  off2 = off.sample
+  a.offering_ids = [off1, off2]
+  a.save
+
+end
