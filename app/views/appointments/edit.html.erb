@@ -1,7 +1,7 @@
 <div class="outerApptForm">
 
   <h3 class="text-center">Edit Your Appointment<br>
-    Scheduled For:<br>
+    Currently Scheduled For:<br>
     <%= @appointment.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></h3>
 
   <%= render partial: "appointment" %>
