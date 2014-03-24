@@ -1,10 +1,10 @@
 
 <%= form_for [current_client, @appointment] do |f| %>
 
-  <div class="apptForm text-center">
-    <%= f.label "Date" %> <br>
+  <div class="apptFormDateTime text-center">
+    <strong>Date</strong> <br>
     <%= select_datetime DateTime.now, { :twelve_hour => true, :ampm => true, 
-      :minute_step => 30, :start_hour => 9, :end_hour => 20, datetime_separator: "\<strong\>Time\<\/strong\>", time_separator: '' }, {class: 'form-control'} %>
+      :minute_step => 30, :start_hour => 9, :end_hour => 20, datetime_separator: "\<br\>\<strong\>Time\<\/strong\>", time_separator: '' }, {class: 'form-control'} %>
   </div>
 
   <div class="apptForm">

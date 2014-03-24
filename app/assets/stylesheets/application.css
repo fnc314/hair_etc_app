@@ -16,9 +16,7 @@ html {
 }
 
 .apptIndex {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
+  margin: 0 25% 10px 25%;
   padding: 10px 10px 10px 10px;
   height: auto;
   border-radius: 25px;
@@ -31,9 +29,7 @@ html {
 }
 
 .apptAdd {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
+  margin: 0 25% 10px 25%;
   padding: 1px;
   border-radius: 5px;
   background-color: white;
@@ -56,19 +52,14 @@ html {
 }
 
 .homePage {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
-  margin-top: -21px;
+  margin: -21px 25% 10px 25%;
   border-radius: 25px;
   padding: 10px 10px 10px 10px;
   background-color: white;
 }
 
 .inputDevise {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
+  margin: 0 25% 10px 25%;
   padding: 1px;
   border-radius: 5px;
   background-color: white;
@@ -83,18 +74,21 @@ html {
 }
 
 .apptForm {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
+  margin: 0 25% 10px 25%;
   padding: 2.5px;
   border-radius: 5px;
   background-color: white;
 }
 
+.apptFormDateTime {
+  margin: 0 25% 10px 25%;
+  padding: 2.5px 5% 5px 5%;
+  border-radius: 5px;
+  background-color: white;
+}
+
 .apptFormButton {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-bottom: 10px;
+  margin: 0 25% 10px 25%;
   padding: 1px;
   border-radius: 5px;
   background-color: white;
