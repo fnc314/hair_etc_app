@@ -2,9 +2,9 @@
 <%= form_for [current_client, @appointment] do |f| %>
 
   <div class="apptForm text-center">
-    <%= f.label "When?" %> <br>
-    <%= f.datetime_select :appt_date_time, { :twelve_hour => true, :ampm => true, 
-      :minute_step => 30, :start_hour => 9, :end_hour => 20 } %>
+    <%= f.label "Date" %> <br>
+    <%= select_datetime DateTime.now, { :twelve_hour => true, :ampm => true, 
+      :minute_step => 30, :start_hour => 9, :end_hour => 20, datetime_separator: "\<strong\>Time\<\/strong\>", time_separator: '' }, {class: 'form-control'} %>
   </div>
 
   <div class="apptForm">
@@ -23,7 +23,7 @@
     %>
   </div>
   
-  <div class="apptForm">
+  <div class="apptFormButton">
     <%= f.submit "Submit", class: 'btn btn-success btn-block' %>
   </div>
 
