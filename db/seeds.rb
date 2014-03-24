@@ -56,9 +56,10 @@ end
   off1 = off.sample
   off2 = off.sample
   if off1 != off2
-    a.offering_ids = [off1, off2]
+    a.offerings.push(Offering.find(off1))
+    a.offerings.push(Offering.find(off2))
   else
-    a.offering_ids = [off1]
+    a.offerings.push(Offering.find(off1))
   end
   a.save
 
