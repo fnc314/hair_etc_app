@@ -7,11 +7,11 @@
   <dl class="apptIndexContents">
     
     <dt>When:</dt>
-    <dd><%= @appointment.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
+    <dd class="text-center"><%= @appointment.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
     <dt>Stylist:</dt>
-    <dd><%= @appointment.stylist.first_name %></dd>
+    <dd class="text-center"><%= @appointment.stylist.first_name %></dd>
     <dt>Services:</dt>
-    <ul class="list-inline"> <% @appointment.offerings.each do |off| %>
+    <ul class="list-inline text-center"> <% @appointment.offerings.each do |off| %>
       <li> <%= off.name %> </li>
       <% end %>
     </ul>
