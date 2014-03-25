@@ -2,13 +2,13 @@
 
   <h1 class="text-center"><%= current_client.first_name %> <%= current_client.last_name %>'s Appointments</h1>
 
-  <div class="apptAdd">
-    <%= button_to "Schedule A New Appointment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-block btn-success' %>
+  <div class="col-xs-10 col-xs-offset-1 apptFormButton">
+    <%= button_to "Schedule A New Appointment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-block btn-success button' %>
   </div>
 
   <% @appointments.each do |app| %>
 
-  <div class="apptIndex">
+  <div class="col-xs-10 col-xs-offset-1 apptIndex">
     
     <dl class="apptIndexContents">
       <dt>When:</dt>

@@ -15,12 +15,17 @@ html {
   background-color: #B0E2FF;
 }
 
+.navbar {
+  background-color: #B0E2FF;
+  border-width: 0;
+}
+
 .apptIndex {
-  margin: 0 25% 10px 25%;
-  padding: 15px 15px 15px 15px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
   height: auto;
   border-radius: 25px;
-  position: absolute center;
   background-color: white;
 }
 
@@ -91,10 +96,10 @@ html {
 }
 
 .apptFormButton {
-  margin: 0 25% 10px 25%;
-  padding: 2.5px 2% 2.5px 2%;
+  margin-bottom: 10px;
+  padding: 0 !important;
   border-radius: 25px;
-  background-color: #B0E2FF;
+  background-color: #5CB85C;
 }
 
 .inputLabel {
@@ -107,5 +112,6 @@ html {
 }
 
 .button {
-  .border-radius(25px);
+  border-radius: 25px !important;
+  /*border-color: #5CB85C !important;*/
 }
