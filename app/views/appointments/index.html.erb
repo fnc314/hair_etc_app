@@ -12,11 +12,11 @@
     
     <dl class="apptIndexContents">
       <dt>When:</dt>
-      <dd><%= app.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
+      <dd class="text-center"><%= app.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
       <dt>Stylist:</dt>
-      <dd><%= app.stylist.first_name %></dd>
+      <dd class="text-center"><%= app.stylist.first_name %></dd>
       <dt>Services:</dt>
-      <ul class="list-inline">
+      <ul class="list-inline text-center">
         <% app.offerings.each do |off| %>
         <li> <%= off.name %> </li>
         <% end %>
