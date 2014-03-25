@@ -1,3 +1,5 @@
+
+
 <h4 class="welcomeBannerName">Hello <%= current_client.first_name %>!</h4>
 
 <% if !@appointment.nil? %>
@@ -19,13 +21,14 @@
   </dl>
 
   <h5>From here you can:</h5>
-    <%= button_to "Edit Appointment", edit_client_appointment_path(current_client.id, @appointment.id) , method: 'get', class: "btn btn-primary btn-lg btn-block" %>
-    <%= button_to "Canecl Appointment", "/clients/#{current_client.id}/appointments/#{@appointment.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
+    <%= button_to "Edit Appointment", edit_client_appointment_path(current_client.id, @appointment.id) , method: 'get', class: "btn btn-primary btn-lg btn-block button" %>
+    <%= button_to "Canecl Appointment", "/clients/#{current_client.id}/appointments/#{@appointment.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block button" %>
 
 <% else %>
 
   <h4 class="text-center">Welcome to Hair Etc!<br>Make Your First Appointment Today!</h4>
 
-  <%= button_to "New Appoitment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-success btn-block' %>
+  <%= button_to "New Appoitment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-success btn-block button' %>
 
 <% end %>
+
