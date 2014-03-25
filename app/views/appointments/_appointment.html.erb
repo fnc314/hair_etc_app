@@ -4,7 +4,7 @@
   <% date = @appointment.appt_date_time || DateTime.now %>
 
 
-  <div class="col-xs-10 col-xs-offset-1 apptForm text-center">
+  <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
     <%= f.label "Date", class: 'inputLabel' %>
     <%= select_date(date, {:start_year => Date.today.year, :end_year => Date.today.year + 3, :order => [:month, :day, :year]}, {class: 'form-control'}) %>
   </div>
@@ -17,7 +17,7 @@
     %>
   </div>
 
-  <div class="col-xs-10 col-xs-offset-1 apptForm text-center">
+  <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
     <%= f.label "Time", class: 'inputLabel' %>
     <%= select_time(date, {ignore_date: true, minute_step: 30, :start_hour => 9, :end_hour => 20, :ampm => true, :twelve_hour => true, :time_separator => ""}, {class: 'form-control'}) %>
   </div>
