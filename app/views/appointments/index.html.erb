@@ -11,7 +11,7 @@
   
   <dl class="apptIndexContents">
     <dt>When:</dt>
-    <dd class="text-center"><%= app.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
+    <dd class="text-center"><%= app.appt_date_time.strftime("%a. %b. %d, %Y at %l:%M %p") %></dd>
     <dt>Stylist:</dt>
     <dd class="text-center"><%= app.stylist.first_name %></dd>
     <dt>Services:</dt>
@@ -22,8 +22,8 @@
     </ul></dl>
 
   <div class="buttons">
-    <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block" %>
-    <%= button_to "Cancel", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
+    <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block button" %>
+    <%= button_to "Cancel", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block button" %>
   </div>
 
 </div>  <!-- End of repeated div -->

@@ -111,8 +111,8 @@ html {
 }
 
 .apptFormDateTime {
-  margin: 0 25% 10px 25%;
-  padding: 2.5px 1.5% 20px 1.5%;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
   border-radius: 25px;
   background-color: white;
 }
@@ -135,5 +135,4 @@ html {
 
 .button {
   border-radius: 25px !important;
-  /*border-color: #5CB85C !important;*/
 }
