@@ -38,6 +38,7 @@ end
 
 Client.create(first_name: "John", last_name: "Smith", email: "abc@def.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
 Client.create(first_name: "Rebecca", last_name: "Jones", email: "example@example.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
+Client.create(first_name: "Frodo", last_name: "Baggins", email: "example@sample.com", password: "1234567890", password_confirmation: "1234567890", phone: "0000000000")
 
 Appointment.all.each do |a|
   a.destroy
