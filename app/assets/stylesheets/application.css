@@ -49,6 +49,13 @@ html {
 
 #welcomeBanner {
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.welcomeBannerName {
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .homePage {
