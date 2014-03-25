@@ -1,37 +1,32 @@
-<div class="clientIndex">
 
-  <h1 class="text-center"><%= current_client.first_name %> <%= current_client.last_name %>'s Appointments</h1>
+<h1 id="clientIndexBanner"><%= current_client.first_name %> <%= current_client.last_name %>'s Appointments</h1>
 
-  <div class="apptAdd">
-    <%= button_to "Schedule A New Appointment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-block btn-success' %>
+<div class="col-xs-10 col-xs-offset-1 apptFormButton">
+  <%= button_to "Schedule A New Appointment", new_client_appointment_path(current_client.id), method: 'get', class: 'btn btn-block btn-success button' %>
+</div>
+
+<% @appointments.each do |app| %>
+
+<div class="col-xs-10 col-xs-offset-1 apptIndex">
+  
+  <dl class="apptIndexContents">
+    <dt>When:</dt>
+    <dd class="text-center"><%= app.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
+    <dt>Stylist:</dt>
+    <dd class="text-center"><%= app.stylist.first_name %></dd>
+    <dt>Services:</dt>
+    <ul class="list-inline text-center">
+      <% app.offerings.each do |off| %>
+      <li> <%= off.name %> </li>
+      <% end %>
+    </ul></dl>
+
+  <div class="buttons">
+    <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block" %>
+    <%= button_to "Cancel", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
   </div>
 
-  <% @appointments.each do |app| %>
-
-  <div class="apptIndex">
-    
-    <dl class="apptIndexContents">
-      <dt>When:</dt>
-      <dd><%= app.appt_date_time.strftime("%a. %b. %d %Y at %l:%M %p") %></dd>
-      <dt>Stylist:</dt>
-      <dd><%= app.stylist.first_name %></dd>
-      <dt>Services:</dt>
-      <ul class="list-inline">
-        <% app.offerings.each do |off| %>
-        <li> <%= off.name %> </li>
-        <% end %>
-      </ul></dl>
-
-    <div class="buttons">
-      <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block" %>
-      <%= button_to "Cancel", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block" %>
-    </div>
-
-  </div>  <!-- End of repeated div -->
+</div>  <!-- End of repeated div -->
 
 
-  <% end %>
-
-
-</div> <!-- clientIndex -->
-
+<% end %>
