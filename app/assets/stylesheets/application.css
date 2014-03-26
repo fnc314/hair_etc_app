@@ -42,6 +42,12 @@ html {
   margin-bottom: 0;
 }
 
+li.navbar-link.navbar-text {
+  padding: 10px 15px 10px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .apptIndex {
   margin-bottom: 10px;
   padding-bottom: 10px;
