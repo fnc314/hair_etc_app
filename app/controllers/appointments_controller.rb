@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = current_client.appointments.new
+    @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
   end
 
   def create
