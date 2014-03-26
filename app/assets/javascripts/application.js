@@ -16,3 +16,14 @@
 //= require bootstrap.js
 //= require bootstrap.min.js
 //= require_tree .
+var userAgent = navigator.userAgent;
+
+var formDisplay = function () {
+  if (userAgent.match(/Mobile/i)) {
+    $('#standardForm').hide();
+  } else {
+    $('#mobileForm').hide();
+  }
+};
+
+$(document).ready(formDisplay);
