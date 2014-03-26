@@ -11,14 +11,41 @@
  *= require_self
  *= require_tree .
  */
+
+@media screen and (max-width: 700px) {
+
+  .form-control {
+    height: 64px !important;
+  }
+
+  .button {
+    height: 64px !important;
+  }
+
+  #date_year, #date_month, #date_day, #date_hour, #date_minute {
+    height: 64px !important;
+  }
+}
+
 html {
   background-color: #B0E2FF;
+}
+
+.navbar-link {
+  color: white;
+
 }
 
 .navbar {
   background-color: #B0E2FF;
   border-width: 0;
   margin-bottom: 0;
+}
+
+li.navbar-link.navbar-text {
+  padding: 10px 15px 10px 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .apptIndex {
