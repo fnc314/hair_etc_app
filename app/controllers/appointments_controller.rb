@@ -40,7 +40,7 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = current_client.appointments.find(params[:id])
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).find(params[:id])
   end
 
   def edit
