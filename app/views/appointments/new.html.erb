@@ -1,8 +1,17 @@
-<div class="outerApptForm col-xs-10 col-xs-offset-1">
+<div class="outerApptForm col-xs-10 col-xs-offset-1" id="standardForm">
 
   <h1 class="text-center"><%= current_client.first_name %></h1>
 
   <%= render partial: "appointment" %>
-  
 
-</div> <!-- outerApptForm -->
+
+</div> <!-- outerApptForm id="standardForm" -->
+
+<div class="outerApptForm col-xs-10 col-xs-offset-1" id="mobileForm">
+
+  <h1 class="text-center"><%= current_client.first_name %></h1>
+
+  <%= render partial: "webview" %>
+
+
+</div>

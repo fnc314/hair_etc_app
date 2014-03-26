@@ -1,42 +1,37 @@
-<div id="standardForm">
 
-  <%= form_for [current_client, @appointment] do |f| %>
+<%= form_for [current_client, @appointment] do |f| %>
 
-    <% date = @appointment.appt_date_time || DateTime.now %>
+  <% date = @appointment.appt_date_time || DateTime.now %>
 
 
-    <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
-      <%= f.label "Date", class: 'inputLabel' %>
-      <%= select_date(date, {:start_year => Date.today.year, :end_year => Date.today.year + 3, :order => [:month, :day, :year]}, {class: 'form-control'}) %>
-    </div>
-   
-    <div class="col-xs-10 col-xs-offset-1 apptForm">
-      <%= f.label "Stylist", class: 'inputLabel inputLabelStylistServices' %>
-      <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name) do |b|
-        b.label(class: 'radio') { b.radio_button + ' ' + b.text }
-      end
-      %>
-    </div>
+  <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
+    <%= f.label "Date", class: 'inputLabel' %>
+    <%= select_date(date, {:start_year => Date.today.year, :end_year => Date.today.year + 3, :order => [:month, :day, :year]}, {class: 'form-control'}) %>
+  </div>
+ 
+  <div class="col-xs-10 col-xs-offset-1 apptForm">
+    <%= f.label "Stylist", class: 'inputLabel inputLabelStylistServices' %>
+    <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name) do |b|
+      b.label(class: 'radio') { b.radio_button + ' ' + b.text }
+    end
+    %>
+  </div>
 
-    <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
-      <%= f.label "Time", class: 'inputLabel' %>
-      <%= select_time(date, {ignore_date: true, minute_step: 30, :start_hour => 9, :end_hour => 20, :ampm => true, :twelve_hour => true, :time_separator => ""}, {class: 'form-control'}) %>
-    </div>
-    
-    <div class="col-xs-10 col-xs-offset-1 apptForm">
-      <%= f.label "Services", class: 'inputLabel inputLabelStylistServices' %>
-      <%= f.collection_check_boxes(:offering_ids, Offering.all, :id, :name) do |b|
-        b.label(class: 'checkbox') { b.check_box + ' ' + b.text }
-      end
-      %>
-    </div>
-    
-    <div class="col-xs-10 col-xs-offset-1 apptFormButton">
-      <%= f.submit "Submit", class: 'btn btn-success btn-block button' %>
-    </div>
+  <div class="col-xs-10 col-xs-offset-1 apptFormDateTime text-center">
+    <%= f.label "Time", class: 'inputLabel' %>
+    <%= select_time(date, {ignore_date: true, minute_step: 30, :start_hour => 9, :end_hour => 20, :ampm => true, :twelve_hour => true, :time_separator => ""}, {class: 'form-control'}) %>
+  </div>
+  
+  <div class="col-xs-10 col-xs-offset-1 apptForm">
+    <%= f.label "Services", class: 'inputLabel inputLabelStylistServices' %>
+    <%= f.collection_check_boxes(:offering_ids, Offering.all, :id, :name) do |b|
+      b.label(class: 'checkbox') { b.check_box + ' ' + b.text }
+    end
+    %>
+  </div>
+  
+  <div class="col-xs-10 col-xs-offset-1 apptFormButton">
+    <%= f.submit "Submit", class: 'btn btn-success btn-block button' %>
+  </div>
 
-  <% end %>
-
-</div>
-
-<%= render partial: "webview" %>
+<% end %>
