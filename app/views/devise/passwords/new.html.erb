@@ -5,9 +5,19 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="col-xs-10 col-xs-offset-1 inputDevise">
-      <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
-    </div>
+    <% if (request.user_agent =~ /Mobile/i).nil? %>
+
+      <div class="col-xs-10 col-xs-offset-1 inputDevise">
+        <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+      </div>
+
+    <% else %>
+
+      <div class="col-xs-10 col-xs-offset-1 inputDevise">
+        <%= f.email_field :email, autofocus: true, class: 'form-control mobileTextInput', placeholder: 'Email' %>
+      </div>
+
+    <% end %>
 
     <div class="col-xs-10 col-xs-offset-1 inputDevise">
       <%= f.submit "Reset", class: 'btn btn-block btn-primary button' %>
