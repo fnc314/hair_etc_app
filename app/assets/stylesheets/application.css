@@ -12,23 +12,29 @@
  *= require_tree .
  */
 
-@media screen and (max-width: 700px) {
+/*move commented out css to jQueary application for mobile browsers*/
 
+@media screen and (max-width: 700px) {
+/*
   .form-control {
     height: 64px !important;
-  }
+  }*/
+
+/*  .heightAdjust {
+    height: 64px !important;
+  }*/
 
   .button {
     height: 64px !important;
   }
 
-  select#date_year, select#date_month, select#date_day, select#date_hour, select#date_minute {
+/*  select#date_year, select#date_month, select#date_day, select#date_hour, select#date_minute {
     height: 64px !important;
-  }
+  }*/
 
   li.navbar-link.navbar-text {
-  padding: 10px 15px 10px 15px !important;
-  margin: 0px;
+    padding: 10px 15px 10px 15px !important;
+    margin: 0px;
   }
 }
 

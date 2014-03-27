@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = current_client.appointments.new
+    @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
   end
 
   def create
@@ -40,11 +40,11 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @appointment = current_client.appointments.find(params[:id])
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).find(params[:id])
   end
 
   def edit
-    @appointment = current_client.appointments.find(params[:id])
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).find(params[:id])
   end
 
   def update

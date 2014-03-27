@@ -1,4 +1,4 @@
-<div class="outerApptForm col-xs-10 col-xs-offset-1">
+<div class="outerApptForm col-xs-10 col-xs-offset-1" id="standardForm">
 
   <h3 class="text-center">Edit Your Appointment<br>
     Currently Scheduled For:<br>
@@ -7,3 +7,14 @@
   <%= render partial: "appointment" %>
 
 </div> <!-- outerApptForm -->
+
+<div class="outerApptForm col-xs-10 col-xs-offset-1" id="mobileForm">
+
+  <h3 class="text-center">Edit Your Appointment<br>
+    Currently Scheduled For:<br>
+    <%= @appointment.appt_date_time.strftime("%a. %b. %d, %Y at %l:%M %p") %></h3>
+
+  <%= render partial: "webview" %>
+
+
+</div>
