@@ -16,18 +16,18 @@
 //= require bootstrap.js
 //= require bootstrap.min.js
 //= require_tree .
-var userAgent = navigator.userAgent;
+// var userAgent = navigator.userAgent;
 
-var formDisplay = function () {
-  if (userAgent.match(/Mobile/i)) {
-    $('#standardForm').hide();
-  } else {
-    $('#mobileForm').hide();
-  }
-};
+// var formDisplay = function () {
+//   if (userAgent.match(/Mobile/i)) {
+//     $('#standardForm').hide();
+//   } else {
+//     $('#mobileForm').hide();
+//   }
+// };
 
-$('document').load(function() {
-  if ($('form').length) {
-    formDisplay();
-  }
-});
+// $('document').ready(function() {
+//   if ($('div.container-fluid').length) {
+//     formDisplay();
+//   }
+// });
