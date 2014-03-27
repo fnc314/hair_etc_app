@@ -11,7 +11,7 @@
   <div class="col-xs-10 col-xs-offset-1 apptForm">
     <%= f.label "Stylist", class: 'inputLabel inputLabelStylistServices' %>
     <%= f.collection_radio_buttons(:stylist_id, Stylist.all, :id, :first_name) do |b|
-        b.label(class: 'radio') { b.radio_button + ' ' + b.text }
+        b.label(class: 'radio') {  b.radio_button(class: 'mobileRadio') + ' ' + b.text }
     end
     %>
   </div>

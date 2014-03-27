@@ -38,6 +38,11 @@
   }
 }
 
+/*.mobileRadio {
+  height: 20px !important;
+  width: 20px !important;
+}*/
+
 html {
   background-color: #B0E2FF;
 }

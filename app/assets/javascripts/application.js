@@ -19,7 +19,7 @@
 var userAgent = navigator.userAgent;
 
 var formDisplay = function () {
-  if (userAgent.match(/Mobile/i)) {
+  if ( userAgent.match(/Mobile/i) ) {
     $('#standardForm').hide();
   } else {
     $('#mobileForm').hide();
