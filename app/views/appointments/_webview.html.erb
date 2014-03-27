@@ -24,7 +24,7 @@
   <div class="col-xs-10 col-xs-offset-1 apptForm">
     <%= f.label "Services", class: 'inputLabel inputLabelStylistServices' %>
     <%= f.collection_check_boxes(:offering_ids, Offering.all, :id, :name) do |b|
-      b.label(class: 'checkbox') { b.check_box + ' ' + b.text }
+      b.label(class: 'checkbox') { b.check_box(class: 'mobileCheckBox') + ' ' + b.text }
     end
     %>
   </div>
