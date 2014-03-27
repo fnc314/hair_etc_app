@@ -15,10 +15,6 @@
 /*move commented out css to jQueary application for mobile browsers*/
 
 @media screen and (max-width: 700px) {
-/*
-  .form-control {
-    height: 64px !important;
-  }*/
 
   .button {
     height: 64px !important;
@@ -32,6 +28,10 @@
     padding: 10px 15px 10px 15px !important;
     margin: 0px;
   }
+}
+
+.mobileTextInput {
+  height: 64px !important;
 }
 
 .heightAdjust {
@@ -130,12 +130,22 @@ li.navbar-link.navbar-text {
   height: 34px;
 }
 
+.inputDeviseRememberMobile {
+  height: 64px !important;
+}
+
 #client_remember_me {
   margin-left: 12px;
 }
 
 .deviseRememberMe {
   margin-top: 6px;
+}
+
+.deviseRememberMeMobile {
+  margin-top: 23px !important;
+  width: 18px !important;
+  height: 18px !important;
 }
 
 .form-control {
