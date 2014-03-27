@@ -20,13 +20,9 @@
     height: 64px !important;
   }*/
 
-  input[type=radio] {
-    -webkit-appearance: radio;
-  }
-
-  input[type=checkbox] {
-    -webkit-appearance: checkbox;
-  }
+/*  .heightAdjust {
+    height: 64px !important;
+  }*/
 
   .button {
     height: 64px !important;
@@ -37,8 +33,8 @@
   }*/
 
   li.navbar-link.navbar-text {
-  padding: 10px 15px 10px 15px !important;
-  margin: 0px;
+    padding: 10px 15px 10px 15px !important;
+    margin: 0px;
   }
 }
 
