@@ -43,8 +43,12 @@ module AppointmentsHelper
   # the string of names in text message to stylist.
   def offerings(appt)
     offerings = ""
-    appt.offering_ids.each do |i|
-      offerings += Offering.find(i).name + " "
+    if app.offerings == []
+      offerings = "No Services Selected"
+    else
+      appt.offerings.each do |off|
+        offerings += off.name + " "
+      end
     end
     return offerings
   end
