@@ -10,6 +10,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
+    @appointment.stylist_id = 1
   end
 
   def create
