@@ -10,6 +10,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
+    @appointment.stylist_id = 1
   end
 
   def create
@@ -85,7 +86,7 @@ class AppointmentsController < ApplicationController
     appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
-      f.json { render :json => current_client.appointments }
+      f.json { render :json => appt }
     end
   end
 
