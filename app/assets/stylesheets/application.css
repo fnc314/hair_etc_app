@@ -30,6 +30,16 @@
   }
 }
 
+.navImg {
+  height: 30px;
+  width: 30px;
+}
+
+.navbar-toggle {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
 .mobileTextInput {
   height: 64px !important;
 }
