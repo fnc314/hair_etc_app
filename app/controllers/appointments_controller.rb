@@ -33,7 +33,7 @@ class AppointmentsController < ApplicationController
     # Save appt
     appt.save
     # Trigger text message tos tylist about requested appointment
-    text_stylist_create(current_client, appt)
+    # text_stylist_create(current_client, appt)
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => current_client.appointments }
@@ -55,7 +55,7 @@ class AppointmentsController < ApplicationController
     # be sent to the stylist wihtout wasting memory and storing the old date
     # and sending it separately.  The appt_date_time value is what the stylist
     # will use to determine exactly which appointment is being edited
-    text_stylist_edit(current_client, appt)
+    # text_stylist_edit(current_client, appt)
     # Mimic format of create function
     # Fixed issue with permit
     edited_appt = params.require(:appointment).permit(:stylist_id, :offering_ids => [])
@@ -82,7 +82,7 @@ class AppointmentsController < ApplicationController
   def destroy
     appt = current_client.appointments.find(params[:id])
     # Trigger text message to stylist about requested cancellation
-    text_stylist_delete(current_client, appt)
+    # text_stylist_delete(current_client, appt)
     appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
