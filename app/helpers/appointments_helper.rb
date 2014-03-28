@@ -43,7 +43,7 @@ module AppointmentsHelper
   # the string of names in text message to stylist.
   def offerings(appt)
     offerings = ""
-    if app.offerings == []
+    if appt.offerings == []
       offerings = "No Services Selected"
     else
       appt.offerings.each do |off|
