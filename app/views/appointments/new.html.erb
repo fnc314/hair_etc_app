@@ -2,16 +2,8 @@
 
   <h1 class="text-center"><%= current_client.first_name %></h1>
 
-  <%= render partial: "appointment" %>
+  <%= render partial: (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm' %>
 
 
 </div> <!-- outerApptForm id="standardForm" -->
 
-<div class="outerApptForm col-xs-10 col-xs-offset-1" id="mobileForm">
-
-  <h1 class="text-center"><%= current_client.first_name %></h1>
-
-  <%= render partial: "webview" %>
-
-
-</div>
