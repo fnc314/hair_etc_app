@@ -2,7 +2,7 @@
   <h3 class='text-center'>Edit Your Appointment<br>Currently Scheduled For:<br>
   <%= @appointment.appt_date_time.strftime("%a. %b. %d, %Y at %l:%M %p") %></h3>
 
-  <%= render partial: (request.user_agent =~ /mobile/i).nil? ? 'appointment' : 'webview' %>
+  <%= render partial: (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm' %>
 
 </div>
 

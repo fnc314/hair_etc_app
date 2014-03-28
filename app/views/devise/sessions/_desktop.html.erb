@@ -1,0 +1,29 @@
+<h2 class="text-center">Sign in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
+  <div class="col-xs-10 col-xs-offset-1 inputDevise">
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email" %>
+  </div>
+
+  <div class="col-xs-10 col-xs-offset-1 inputDevise">
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="col-xs-10 col-xs-offset-1 inputDevise inputDeviseRemember">
+      <%= f.check_box :remember_me, class: 'deviseRememberMe' %> <%= f.label :remember_me, class: 'deviseRememberMe' %>
+    </div>
+  <% end -%>
+
+  <div class="col-xs-10 col-xs-offset-1 inputDevise">
+    <%= f.submit "Sign in", class: "btn btn-block btn-success button" %>
+  </div>
+
+<% end %>
+
+<div class="col-xs-10 col-xs-offset-1 inputDevise">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= button_to "Forgot your password?", new_client_password_path, method: 'get', class: 'btn btn-block btn-link button' %>
+  <% end %>
+</div>
