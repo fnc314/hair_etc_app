@@ -13,9 +13,9 @@ var deleteButton = function (current_client_id, app_id) {
   
   $.ajax({
     type: "delete",
-    url: "/clients/" + current_client_id + "/appointments/" + app_id,
+    url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
     data: data
-  }).done(function (current_client_id, app_id) {
+  }).success(function (current_client_id, app_id) {
     console.log('#'+current_client_id+'_'+app_id);
   });
 };
