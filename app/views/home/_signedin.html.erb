@@ -13,8 +13,13 @@
     <dt>Stylist:</dt>
     <dd class="text-center"><%= @appointment.stylist.first_name %></dd>
     <dt>Services:</dt>
-    <ul class="list-inline text-center"> <% @appointment.offerings.each do |off| %>
-      <li> <%= off.name %> </li>
+    <ul class="list-inline text-center">
+      <% if @appointment.offerings == [] %>
+        <li> No Services Selected! Please Select A Service! </li>
+      <% else %>
+        <% @appointment.offerings.each do |off| %>
+        <li> <%= off.name %> </li>
+        <% end %>
       <% end %>
     </ul>
 

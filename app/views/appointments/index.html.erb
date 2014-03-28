@@ -16,8 +16,12 @@
     <dd class="text-center"><%= app.stylist.first_name %></dd>
     <dt>Services:</dt>
     <ul class="list-inline text-center">
-      <% app.offerings.each do |off| %>
-      <li> <%= off.name %> </li>
+      <% if app.offerings == [] %>
+        <li> No Services Selected! Please Select A Service! </li>
+      <% else %>
+        <% app.offerings.each do |off| %>
+        <li> <%= off.name %> </li>
+        <% end %>
       <% end %>
     </ul></dl>
 
