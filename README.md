@@ -23,9 +23,9 @@ The app can be seen here:
 
 To explore the app, the following credentials are available:
 
-**EMail**: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
+**EMail**: `abc@def.com` *OR* `example@example.com` *OR* `example@sample.com`
 
-**Password**: `1234567890` (for all accounts)
+**Password**: `1234567890` *(for all accounts)*
 
 Notes:
 - The first two emails are accounts with multiple appointments that allow users to test out deleting (examining the instant UI change) and to see what the application will look like populated with a decent amount of information
