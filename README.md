@@ -1,4 +1,4 @@
-## Hair Etc App
+# Hair Etc App
 
 This project is a ground-up rewrite of the first project completed at WDI.  The first project can be seen [here](https://github.com/fnc314/Project1).
 
