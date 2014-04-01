@@ -22,8 +22,9 @@ The app can be seen here:
 [HairEtcApp](https://hairetcapp.herokuapp.com/)
 
 To explore the app, the following credentials are available:
-- EMail: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
-- Password: `1234567890` (for all accounts)
+
+EMail: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
+Password: `1234567890` (for all accounts)
 
 Notes:
 >
