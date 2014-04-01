@@ -28,7 +28,6 @@ EMail: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
 Password: `1234567890` (for all accounts)
 
 Notes:
-
 -The first two emails are accounts with multiple appointments that allow users to test out deleting (examining the instant UI change) and to see what the application will look like populated with a decent amount of information
 
 -The third account has no pre-made appointments and shows what a new user to the site would experience, once they are signed in
