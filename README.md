@@ -10,9 +10,9 @@ For this version of the appointment management application, I integrated [Devise
 
 The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for either mobile devices (mobile browsers or the dedicated Android app).  Using
 
-~~~ruby
+```ruby
 (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm'
-~~~
+```
 
 my Rails server (running on Heroku in Ruby (2.1.1)) can determine if the connecting device is mobile or desktop.  Thus, the data transmission to the client is only the necessary HTML with all of the specific stylings in tact.  By using this method, I am able to send only necessary data to devices and I can ensure the user experience no matter how users access the platform.
 
@@ -22,24 +22,22 @@ The app can be seen here:
 [HairEtcApp](https://hairetcapp.herokuapp.com/)
 
 To explore the app, the following credentials are available:
-
-EMail: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
-
-Password: `1234567890` (for all accounts)
+- EMail: `abc@def.com` -OR- `example@example.com` -OR- `example@sample.com`
+- Password: `1234567890` (for all accounts)
 
 Notes:
 
--The first two emails are accounts with multiple appointments that allow users to test out deleting (examining the instant UI change) and to see what the application will look like populated with a decent amount of information
--The third account has no pre-made appointments and shows what a new user to the site would experience, once they are signed in
--All accounts can be used to delete and edit any appointment as well as create an appointment
+- The first two emails are accounts with multiple appointments that allow users to test out deleting (examining the instant UI change) and to see what the application will look like populated with a decent amount of information
+- The third account has no pre-made appointments and shows what a new user to the site would experience, once they are signed in
+- All accounts can be used to delete and edit any appointment as well as create an appointment
 
 The Android source code can be seen here:
 [HairEtcAppAndroid](https://github.com/fnc314/hair_etc_app_android)
 
 Notes:
 
--Without forking/cloning the repository, the Android app is unavailable for download
--The Android experience can be had using a mobile device's Chrome browser (testing was not done on Safari, Firefox, IE, or Opera on mobile devices)
+- Without forking/cloning the repository, the Android app is unavailable for download
+- The Android experience can be had using a mobile device's Chrome browser (testing was not done on Safari, Firefox, IE, or Opera on mobile devices)
 
 ## Future Upgrades
 
