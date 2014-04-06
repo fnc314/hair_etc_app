@@ -44,7 +44,7 @@ Notes:
 
 As it stands, users do not have a profile page and therefore cannot change informaiton after registration.  Nor can customers remove their account.  These features will be added on gradually and will be ready before any live roll-out of the application.
 
-Over time I will be migrating the full functionality of this app to native Android.  I will recreate the views for Android application with the same consistent coloring but plan to handle all of the computation on the Android local device (thus reducing data usage even more).  The server I already built with Rails will handle the backend of the application and will receive the data from the Android app and handle the database.  This way, updates to the databases can be made without updates through the Play Store.
+Over time I will be migrating the full functionality of this app to native Android.  I will recreate the views for Android application with the same consistent coloring but plan to handle all of the computation on the Android local device (thus reducing data usage even more).  The server I already built with Rails will handle the backend of the application and will receive the data from the Android app and handle the database.
 
 As the app stands, there is a strict requirement of Android 4.4 KitKat (it is in this version of Android that the `WebView` was moved to Chromium and therefore able to render the specific CSS stylings).  As I port the functionality to Android native, I will be able to lower the requirement to Android 2.3 Gingerbread (or Android 4.0 Ice Cream Sandwhich).
 
