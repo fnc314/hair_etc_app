@@ -6,6 +6,11 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = current_client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC").to_a
+    respond_to do |f|
+      f.html
+      f.json { render :json => @appointments }
+      f.xml { render :xml => @appointments }
+    end
   end
 
   def new
@@ -37,6 +42,7 @@ class AppointmentsController < ApplicationController
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => current_client.appointments }
+      f.xml { render :xml => current_client.appointments }
     end
   end
 
