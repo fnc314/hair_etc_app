@@ -27,7 +27,7 @@
 
   <h5>From here you can:</h5>
     <%= button_to "Edit Appointment", edit_client_appointment_path(current_client.id, @appointment.id) , method: 'get', class: "btn btn-primary btn-lg btn-block button" %>
-    <%= button_to "Cancel Appointment", "/clients/#{current_client.id}/appointments/#{@appointment.id}", method: 'delete', onclick: "deleteButton( #{current_client.id}, #{@appointment.id} )", class: "btn btn-lg btn-danger btn-block button" %>
+    <%= button_to "Cancel Appointment", "/clients/#{current_client.id}/appointments/#{@appointment.id}", method: 'delete', class: "btn btn-lg btn-danger btn-block button" %>
 
 <% else %>
 
