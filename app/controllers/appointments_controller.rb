@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).new
     @appointment.stylist_id = 1
   end
 
@@ -42,12 +42,17 @@ class AppointmentsController < ApplicationController
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => current_client.appointments }
-      f.xml { render :xml => current_client.appointments }
+      f.xml { render :xml => current_client.appointments.includes(:offerings) }
     end
   end
 
   def show
     @appointment = current_client.appointments.includes(:stylist).includes(:offerings).find(params[:id])
+    respond_to do |f|
+      f.html
+      f.json { render :json => @appointment }
+      f.xml { render :xml => @appointment }
+    end
   end
 
   def edit
