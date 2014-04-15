@@ -98,6 +98,7 @@ class AppointmentsController < ApplicationController
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
       f.json { render :json => appt }
+      f.xml { render :xml => appt }
     end
   end
 
