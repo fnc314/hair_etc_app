@@ -178,6 +178,10 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    simple_token_authentication (1.2.0)
+      actionmailer (>= 3.2.6, < 5)
+      activerecord (>= 3.2.6, < 5)
+      devise (~> 3.2.0)
     slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -236,6 +240,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc
+  simple_token_authentication
   sqlite3
   turbolinks
   twilio-ruby
