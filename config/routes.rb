@@ -1,7 +1,7 @@
 HairEtcApp::Application.routes.draw do
   
   namespace :api, defaults: {format: :json} do
-    resource :sessions, only: [:create]
+    resource :appointments, only: [:create]
   end
 
   root to: 'home#index'
@@ -19,7 +19,7 @@ HairEtcApp::Application.routes.draw do
   
 end
 #                     Prefix Verb   URI Pattern                                         Controller#Action
-#               api_sessions POST   /api/sessions(.:format)                             api/sessions#create {:format=>:json}
+#           api_appointments POST   /api/appointments(.:format)                         api/appointments#create {:format=>:json}
 #                       root GET    /                                                   home#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new
 #             client_session POST   /clients/sign_in(.:format)                          devise/sessions#create
