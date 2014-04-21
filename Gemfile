@@ -72,7 +72,7 @@ gem 'devise'
 
 gem 'dotenv-rails'
 
-gem 'simple_token_authentication'
+# gem 'simple_token_authentication'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
