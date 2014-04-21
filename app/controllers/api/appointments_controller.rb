@@ -1,5 +1,7 @@
 class Api::AppointmentsController < ApiController
 
+  include AppointmentsHelper
+
   skip_before_filter :verify_authenticity_token
   respond_to :json
 
@@ -13,7 +15,11 @@ class Api::AppointmentsController < ApiController
     appt.appt_date_time = appt_date_time_formatter(time, date)
     appt.stylist_id = stylist_id.to_i
     appt = appt_offering_ids(offering_ids, appt)
-    appt.save
+    if appt.save
+      text_stylist_create(client, appt)
+    end
+    print "#{appt}"
+    print appt.to_json
     respond_to do |f|
       f.json {
         render :json => appt 
