@@ -1,8 +1,9 @@
 class ApiController < ApplicationController
 
-  # protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
+  protect_from_forgery with: :null_session
 
-  skip_before_filter :verify_authenticy_token
+  skip_before_filter :authenticate_client!
+  before_filter :authenticate_client_from_token!
   respond_to :json
 
   protected
