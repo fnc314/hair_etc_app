@@ -2,7 +2,7 @@ class Api::AppointmentsController < ApiController
 
   include AppointmentsHelper
 
-  skip_before_filter :verify_authenticity_token
+  # skip_before_filter :verify_authenticity_token
   respond_to :json
 
   def create
@@ -16,10 +16,17 @@ class Api::AppointmentsController < ApiController
     appt.stylist_id = stylist_id.to_i
     appt = appt_offering_ids(offering_ids, appt)
     if appt.save
-      text_stylist_create(client, appt)
+      # text_stylist_create(client, appt)
+      puts "****************"
+      puts appt.to_json
+      puts request.format
+      if request.format == 'application/json'
+        puts "=============>>>><<<<=============="
+        puts request.original_url
+        puts "=============>>>><<<<=============="
+      end
+      puts "****************"
     end
-    print "#{appt}"
-    print appt.to_json
     respond_to do |f|
       f.json {
         render :json => appt 
