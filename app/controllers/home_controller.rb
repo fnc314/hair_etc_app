@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     if signed_in?
       
       if current_client.appointments.count != 0
-        @appointment = current_client.appointments.order("updated_at DESC").first
+        @appointment = current_client.appointments.includes(:stylist).includes(:offerings).order("updated_at DESC").first
         respond_to do |f|
           f.html
           f.json

@@ -8,7 +8,6 @@ class Api::SessionsController < ApiController
     client_email = params["email"]
     client = Client.find_by(:email => client_email)
     puts "****************"
-
     puts request.headers["X-CSRF-Token"]
     if request.format == 'application/json'
       puts "=============>>>><<<<=============="
