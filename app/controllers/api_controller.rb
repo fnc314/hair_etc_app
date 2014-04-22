@@ -4,6 +4,7 @@ class ApiController < ApplicationController
 
   skip_before_filter :authenticate_client!
   before_filter :authenticate_client_from_token!
+  before_filter :csrf_token
   respond_to :json
 
   protected
@@ -19,6 +20,10 @@ class ApiController < ApplicationController
     if client && Devise.secure_compare(client.authentication_token, client_auth_token)
       sign_in(client, store: false)
     end
+  end
+
+  def csrf_token
+    request.headers["X-CSRF-Token"] = form_authenticity_token
   end
 
 end

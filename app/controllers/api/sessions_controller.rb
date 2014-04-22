@@ -5,22 +5,28 @@ class Api::SessionsController < ApiController
 
 
   def create
-    client_email = params["email"]
-    client = Client.find_by(:email => client_email)
-    puts "****************"
-    puts request.headers["X-CSRF-Token"]
-    if request.format == 'application/json'
-      puts "=============>>>><<<<=============="
-      puts request.original_url
-      puts "=============>>>><<<<=============="
+    client = Client.find_by(:email => params[:email])
+    if client.valid_password?(params[:password])
+      respond_to do |f|
+        f.json {
+          render :json => { first_name: client.first_name, authentication_token: client.authentication_token }
+        }
+      end
     end
-    puts "****************"
+    # puts "****************"
+    # puts request.headers["X-CSRF-Token"]
+    # if request.format == 'application/json'
+    #   puts "=============>>>><<<<=============="
+    #   puts request.original_url
+    #   puts "=============>>>><<<<=============="
+    # end
+    # puts "****************"
 
-    respond_to do |f|
-      f.json {
-        render :json => { authentication_token: client.authentication_token }
-      }
-    end
+    # respond_to do |f|
+    #   f.json {
+    #     render :json => { first_name: client.first_name, authentication_token: client.authentication_token }
+    #   }
+    # end
   end
 
 end
