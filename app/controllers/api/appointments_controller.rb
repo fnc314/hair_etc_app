@@ -11,7 +11,7 @@ class Api::AppointmentsController < ApiController
     date = params[:apptDate]
     offering_ids = params[:offering_ids]
     stylist_id = params[:stylist_id]
-    client = Client.first
+    client = find_client(request.headers["X-CLIENT-TOKEN"], request.headers["X-CLIENT-EMAIL"])
     appt = client.appointments.new
     appt.appt_date_time = appt_date_time_formatter(time, date)
     appt.stylist_id = stylist_id.to_i
@@ -19,7 +19,8 @@ class Api::AppointmentsController < ApiController
     if appt.save
       # text_stylist_create(client, appt)
       puts "****************"
-      puts appt.to_json
+      puts request.headers["X-CLIENT-EMAIL"]
+      puts request.headers["X-CLIENT-TOKEN"].class
       puts request.format
       if request.format == 'application/json'
         puts "=============>>>><<<<=============="
@@ -36,6 +37,11 @@ class Api::AppointmentsController < ApiController
   end
 
   private
+
+  def find_client(request_header_token, request_header_email)
+    a = Client.find_by(:email => request_header_email)
+    return a if a.authentication_token == request_header_token
+  end
 
   def appt_date_time_formatter(time, date)
     apptHour = (time[0] + time[1]).to_i
