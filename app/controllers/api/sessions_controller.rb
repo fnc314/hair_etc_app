@@ -2,8 +2,6 @@ class Api::SessionsController < ApiController
 
   skip_before_filter :authenticate_client_from_token!
 
-
-
   def create
     client = Client.find_by(:email => params[:email])
     if client.valid_password?(params[:password])
