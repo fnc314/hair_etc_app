@@ -44,7 +44,7 @@ Appointment.all.each do |a|
   a.destroy
 end
 
-(1..20).each do
+(1..50).each do
 
   month = (1..12).to_a.sample
   if month == 2

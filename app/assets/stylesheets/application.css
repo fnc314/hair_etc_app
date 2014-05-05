@@ -67,6 +67,10 @@ html {
   font-weight: bold;
 }
 
+nav.navbar {
+  margin-bottom: 0;
+}
+
 .navbar {
   background-color: #B0E2FF;
   border-width: 0;
@@ -92,7 +96,7 @@ li.navbar-link.navbar-text {
 }
 
 #clientIndexBanner {
-  margin-top: -20px;
+  margin-top: 0px;
   text-align: center;
 }
 

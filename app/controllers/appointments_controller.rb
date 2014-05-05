@@ -8,13 +8,11 @@ class AppointmentsController < ApplicationController
     @appointments = current_client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC").to_a
     respond_to do |f|
       f.html
-      f.json { render :json => @appointments }
-      f.xml { render :xml => @appointments }
     end
   end
 
   def new
-    @appointment = current_client.appointments.includes(:stylist).includes(:oferings).new
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).new
     @appointment.stylist_id = 1
   end
 
@@ -41,13 +39,14 @@ class AppointmentsController < ApplicationController
     text_stylist_create(current_client, appt)
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
-      f.json { render :json => current_client.appointments }
-      f.xml { render :xml => current_client.appointments }
     end
   end
 
   def show
     @appointment = current_client.appointments.includes(:stylist).includes(:offerings).find(params[:id])
+    respond_to do |f|
+      f.html
+    end
   end
 
   def edit
@@ -81,7 +80,6 @@ class AppointmentsController < ApplicationController
     appt.save
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
-      f.json { render :json => current_client.appointments }
     end
   end
 
@@ -92,7 +90,6 @@ class AppointmentsController < ApplicationController
     appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
-      f.json { render :json => appt }
     end
   end
 

@@ -6,10 +6,16 @@ module AppointmentsHelper
 
     a_d_t = appt.appt_date_time.strftime("%a. %b. %d, %Y at%l:%M %p")
 
+    message = "#{current_client.first_name} #{current_client.last_name} wants to schedule an appointment on #{a_d_t} for #{offerings(appt)}.  Please call #{current_client.phone}."
+
+    if message_length_check(message)
+      message = "Please call #{current_client.first_name} #{current_client.last_name} at #{current_client.phone} for an appointment on #{a_d_t}."
+    end
+
     @client.account.sms.messages.create(
       :from => ENV['TWILIO_PHONE'],
       :to => appt.stylist.phone,
-      :body => "#{current_client.first_name} #{current_client.last_name} wants to schedule an appointment on #{a_d_t} for #{offerings(appt)}.  Please call #{current_client.phone}.")
+      :body => message)
 
   end
 
@@ -39,6 +45,7 @@ module AppointmentsHelper
 
   end
 
+  private
   # Method used to extract all of an appointments attached Offerings and display
   # the string of names in text message to stylist.
   def offerings(appt)
@@ -51,6 +58,14 @@ module AppointmentsHelper
       end
     end
     return offerings
+  end
+
+  def message_length_check(message)
+    if message.length > 160
+      true
+    else
+      false
+    end
   end
 
 end
