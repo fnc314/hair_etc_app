@@ -6,6 +6,20 @@ class Api::AppointmentsController < ApiController
   # skip_before_filter :verify_authenticity_token
   respond_to :json
 
+
+  # Method will be used to populate a scrollable list view on Android client
+  # highliting appointment dates and times and using stylist and services 
+  # as secondary text in a smaller font-face -> Android Second Activity
+  def index
+    client = find_client(request.headers["X-CLIENT-TOKEN"], request.headers["X-CLIENT-EMAIL"])
+    @appointments = client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC")
+    respond_to do |f|
+      f.json {
+        render :json => @appointments
+      }
+    end
+  end
+
   def create
     time = params[:apptTime]
     date = params[:apptDate]
