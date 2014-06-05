@@ -1,7 +1,8 @@
 HairEtcApp::Application.routes.draw do
   
   namespace :api, defaults: {format: :json} do
-    resource :appointments, only: [:create]
+    resource :appointments, only: [:index, :create]
+    
     resource :sessions, only: [:create]
   end
 

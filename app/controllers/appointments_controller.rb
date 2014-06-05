@@ -5,9 +5,12 @@ class AppointmentsController < ApplicationController
   before_filter :authenticate_client!
 
   def index
-    @appointments = current_client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC").to_a
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC")
+    @appointments = @appointment.to_a
     respond_to do |f|
       f.html
+      f.json { render :json => @appointment }
+      f.xml { render :xml => @appointment }
     end
   end
 
