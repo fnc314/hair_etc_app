@@ -32,16 +32,6 @@ class Api::AppointmentsController < ApiController
     appt = appt_offering_ids(offering_ids, appt)
     if appt.save
       text_stylist_create(client, appt)
-      # puts "****************"
-      # puts request.headers["X-CLIENT-EMAIL"]
-      # puts request.headers["X-CLIENT-TOKEN"].class
-      # puts request.format
-      # if request.format == 'application/json'
-      #   puts "=============>>>><<<<=============="
-      #   puts request.original_url
-      #   puts "=============>>>><<<<=============="
-      # end
-      # puts "****************"
     end
     respond_to do |f|
       f.json {
