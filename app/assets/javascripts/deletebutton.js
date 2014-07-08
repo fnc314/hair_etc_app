@@ -29,12 +29,13 @@ var deleteButton = function (current_client_id, app_id) {
     console.log(response);
     var id1 = response.id.toString();
     var ele = document.getElementById(id1);
+    $("#"+id1).fadeOut(800);
     // ele.remove();
     // ele.animatedRemoval();
-    $("#"+id1).animate({
-      height: 0
-    }, 2000, "swing", function () {
-      $(this).remove();
-    });
+    // $("#"+id1).animate({
+    //   height: 0
+    // }, 200, "linear", function () {
+    //   $(this).fadeOut();
+    // });
   });
 };
