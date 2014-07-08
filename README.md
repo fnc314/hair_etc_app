@@ -4,11 +4,11 @@ This project is a ground-up rewrite of the first project completed at WDI.  The 
 
 ## As an evolution of the first HairEtcApp
 
-For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Bootstrap CSS](www.getbootstrap.com).  The redesign allowed me to vastly improve the user experience.
+For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Bootstrap CSS](www.getbootstrap.com) and [jQueary UI](www.jquearyui.com).  The redesign allowed me to vastly improve the user experience.
 
 ## Truly Mobile First Design
 
-The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for either mobile devices (mobile browsers or the dedicated Android app).  Using
+The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for mobile devices (mobile browsers or the dedicated Android app).  Using
 
 ```ruby
 (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm'
@@ -52,7 +52,7 @@ Due to the immense popularity of the iOS platform I will also work on a direct p
 
 ## The Experience
 
-This project was a great way to really learn and master Rails (specifically `request.user_agent` and all of the different form builders; such as `collection_check_boxes` and `collection_radio_buttons`).  I realized when it is smart to use `.includes` to lighten the queary load on the database, inproving speed.  I am a lot more confident and comfortable with Rails after getting to apply all of my knowledge to this app.
+This project was a great way to really learn and master Rails (specifically `request.user_agent` and all of the different form builders; such as `collection_check_boxes` and `collection_radio_buttons`).  I realized when it is smart to use `.includes` to lighten the queary load on the database, improving speed.  I am a lot more confident and comfortable with Rails after getting to apply all of my knowledge to this app.
 
 I learned a vast amount about developing for Android and the power of Chrome DevTools.  I was able to route my Android 4.4 emulator to use my localhost Rails server, giving me not only real-time updates on the mobile interface but allow me to use Chrome's styling tools to determine exactly how to move the DOM elements for the `WebView`.  In doing this development work-around, I also faced first-hand exposure to how difficult developing for a fragmented operating system like Android can be.  During development, I had to upgrade my device (via CyanogenMod) to Android 4.4 KitKat so I was able to run the app.
 

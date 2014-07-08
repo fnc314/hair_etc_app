@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.js
 //= require bootstrap.min.js
+//= require jquery-ui.js
 //= require deletebutton.js
 //= require_tree .

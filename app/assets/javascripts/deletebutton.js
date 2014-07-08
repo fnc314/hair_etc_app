@@ -1,4 +1,19 @@
+// Animation for removing div
 
+var animateRemoval = function (response) {
+  var id = response.id.toString();
+  $("#" + id).animate({
+    height: 15,
+    padding: 15
+  }, 800, "linear", function () {
+    $(this).fadeOut();
+  });
+};
+
+var confirmation = function () {
+  var answer = confirm("Are you SURE you want to delete this appointment?");
+  return answer;
+}
 
 var deleteButton = function (current_client_id, app_id) {
   // Prevent reload
@@ -14,13 +29,15 @@ var deleteButton = function (current_client_id, app_id) {
   data.id = app_id.toString();
   // Create ajax call to delete object and remove containing div from the page
   // without refresh
-  $.ajax({
-    type: "delete",
-    url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
-    data: data
-  }).success(function (response) {
-    var id1 = response.id.toString();
-    var ele = document.getElementById(id1);
-    ele.remove();
-  });
+  if (confirmation()) {
+    $.ajax({
+      type: "delete",
+      url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
+      data: data
+    }).success( function (response) {
+      animateRemoval(response);
+    });
+  } else {
+    null;
+  }
 };
