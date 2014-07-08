@@ -10,6 +10,11 @@ var animateRemoval = function (response) {
   });
 };
 
+var confirmation = function () {
+  var answer = confirm("Are you SURE you want to delete this appointment?");
+  return answer;
+}
+
 var deleteButton = function (current_client_id, app_id) {
   // Prevent reload
   event.preventDefault();
@@ -24,11 +29,15 @@ var deleteButton = function (current_client_id, app_id) {
   data.id = app_id.toString();
   // Create ajax call to delete object and remove containing div from the page
   // without refresh
-  $.ajax({
-    type: "delete",
-    url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
-    data: data
-  }).success( function (response) {
-    animateRemoval(response);
-  });
+  if (confirmation()) {
+    $.ajax({
+      type: "delete",
+      url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
+      data: data
+    }).success( function (response) {
+      animateRemoval(response);
+    });
+  } else {
+    null;
+  }
 };
