@@ -32,8 +32,8 @@ var deleteButton = function (current_client_id, app_id) {
     // ele.remove();
     // ele.animatedRemoval();
     $("#"+id1).animate({
-      height:0
-    }, 2000, "linear", function () {
+      height: 0
+    }, 2000, "swing", function () {
       $(this).remove();
     });
   });
