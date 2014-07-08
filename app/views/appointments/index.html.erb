@@ -25,25 +25,11 @@
       <% end %>
     </ul></dl>
 
-  <% if (request.user_agent =~ /Mobile/i).nil? %>
-  
-    <div id="overlay">
-      <div>
-        <p>Are You Sure?</p><br>
-        <a href="#" onclick="deleteButton( #{current_client.id}, #{app.id} )"> YES</a>
-        <br>
-        <a href="#" onclick="overlay()">NO</a>
-      </div>
-    </div>
-
-  <% end %>
-
   <div class="buttons">
     <%= button_to "Edit", edit_client_appointment_path(current_client.id, app.id), method: 'get', class: "btn btn-primary btn-lg btn-block button" %>
-    <%= button_to "Cancel Appointment", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', onclick: "overlay()", class: "btn btn-lg btn-danger btn-block button" %>
+    <%= button_to "Cancel Appointment", "/clients/#{current_client.id}/appointments/#{app.id}", method: 'delete', onclick: "deleteButton( #{current_client.id}, #{app.id} )", class: "btn btn-lg btn-danger btn-block button" %>
   </div>
 
 </div>  <!-- End of repeated div -->
-
 
 <% end %>
