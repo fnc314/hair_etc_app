@@ -4,11 +4,11 @@ This project is a ground-up rewrite of the first project completed at WDI.  The 
 
 ## As an evolution of the first HairEtcApp
 
-For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Bootstrap CSS](www.getbootstrap.com).  The redesign allowed me to vastly improve the user experience.
+For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Bootstrap CSS](www.getbootstrap.com) and [jQueary UI](www.jquearyui.com).  The redesign allowed me to vastly improve the user experience.
 
 ## Truly Mobile First Design
 
-The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for either mobile devices (mobile browsers or the dedicated Android app).  Using
+The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for mobile devices (mobile browsers or the dedicated Android app).  Using
 
 ```ruby
 (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm'
