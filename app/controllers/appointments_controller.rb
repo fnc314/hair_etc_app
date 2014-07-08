@@ -93,6 +93,7 @@ class AppointmentsController < ApplicationController
     appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
+      f.json { render :json => appt }
     end
   end
 

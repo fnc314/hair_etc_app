@@ -1,11 +1,8 @@
 // Animation for removing div
 
-var animationRemoval = function () {
-  $('ele').animate({
-    height: 0
-  }, 2000, "lienear",
-  function () {
-    ele.remove();
+var animatedRemoval = function () {
+  $(this).animate({height: 0}, 2000, "linear", function() {
+    $(this).remove();
   });
 };
 
@@ -28,8 +25,16 @@ var deleteButton = function (current_client_id, app_id) {
     url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
     data: data
   }).success(function (response) {
+    var a = response;
+    console.log(response);
     var id1 = response.id.toString();
     var ele = document.getElementById(id1);
-    ele.animationRemoval();
+    // ele.remove();
+    // ele.animatedRemoval();
+    $("#"+id1).animate({
+      height:0
+    }, 2000, "linear", function () {
+      $(this).remove();
+    });
   });
 };
