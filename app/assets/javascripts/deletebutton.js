@@ -10,9 +10,21 @@ var animateRemoval = function (response) {
   });
 };
 
+// Identify if client is mobile web device
+var isMobile = function () {
+  var bool = /Mobile|Mobi/i.test(navigator.userAgent);
+  return bool;
+}
+
+// JavaScript based confirmation box to be used with mobile web
 var confirmation = function () {
   var answer = confirm("Are you SURE you want to delete this appointment?");
   return answer;
+}
+
+var overlay = function () {
+  el = document.getElementById('overlay');
+  el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
 }
 
 var deleteButton = function (current_client_id, app_id) {
@@ -29,15 +41,21 @@ var deleteButton = function (current_client_id, app_id) {
   data.id = app_id.toString();
   // Create ajax call to delete object and remove containing div from the page
   // without refresh
-  if (confirmation()) {
-    $.ajax({
-      type: "delete",
-      url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
-      data: data
-    }).success( function (response) {
-      animateRemoval(response);
-    });
+  if (isMobile()) {
+    if (confirmation()) {
+      $.ajax({
+        type: "delete",
+        url: "/clients/" + current_client_id + "/appointments/" + app_id + '.json',
+        data: data
+      }).success( function (response) {
+        animateRemoval(response);
+      });
+    } else {
+      null;
+    }
   } else {
+    overlay();
+    // alert("You're on a desktop!");
     null;
   }
 };

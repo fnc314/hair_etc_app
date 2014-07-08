@@ -12,6 +12,12 @@
  *= require_tree .
  */
 
+/*body {
+  height:100%;
+  margin:0;
+  padding:0;
+}*/
+
 /*move commented out css to jQueary application for mobile browsers*/
 
 @media screen and (max-width: 700px) {
@@ -28,6 +34,27 @@
     padding: 10px 15px 10px 15px !important;
     margin: 0px;
   }
+}
+
+#overlay {
+  visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width:100%;
+  height:100%;
+  text-align:center;
+  z-index: 1000;
+}
+
+#overlay div {
+  width:300px;
+  margin: 100px auto;
+  background-color: #fff;
+  border:1px solid #000;
+  border-radius: 25px;
+  padding:15px;
+  text-align:center;
 }
 
 .navImg {
