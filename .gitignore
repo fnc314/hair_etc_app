@@ -15,4 +15,8 @@
 /log/*.log
 /tmp
 
+# Ignore .env file
 .env
+
+# Ignore seed file >> Protect Phone Numbers
+/db/seeds.rb
