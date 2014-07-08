@@ -1,4 +1,13 @@
+// Animation for removing div
 
+var animationRemoval = function () {
+  $('ele').animate({
+    height: 0
+  }, 2000, "lienear",
+  function () {
+    ele.remove();
+  });
+};
 
 var deleteButton = function (current_client_id, app_id) {
   // Prevent reload
@@ -21,6 +30,6 @@ var deleteButton = function (current_client_id, app_id) {
   }).success(function (response) {
     var id1 = response.id.toString();
     var ele = document.getElementById(id1);
-    ele.remove();
+    ele.animationRemoval();
   });
 };
