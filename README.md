@@ -52,7 +52,7 @@ Due to the immense popularity of the iOS platform I will also work on a direct p
 
 ## The Experience
 
-This project was a great way to really learn and master Rails (specifically `request.user_agent` and all of the different form builders; such as `collection_check_boxes` and `collection_radio_buttons`).  I realized when it is smart to use `.includes` to lighten the queary load on the database, inproving speed.  I am a lot more confident and comfortable with Rails after getting to apply all of my knowledge to this app.
+This project was a great way to really learn and master Rails (specifically `request.user_agent` and all of the different form builders; such as `collection_check_boxes` and `collection_radio_buttons`).  I realized when it is smart to use `.includes` to lighten the queary load on the database, improving speed.  I am a lot more confident and comfortable with Rails after getting to apply all of my knowledge to this app.
 
 I learned a vast amount about developing for Android and the power of Chrome DevTools.  I was able to route my Android 4.4 emulator to use my localhost Rails server, giving me not only real-time updates on the mobile interface but allow me to use Chrome's styling tools to determine exactly how to move the DOM elements for the `WebView`.  In doing this development work-around, I also faced first-hand exposure to how difficult developing for a fragmented operating system like Android can be.  During development, I had to upgrade my device (via CyanogenMod) to Android 4.4 KitKat so I was able to run the app.
 
