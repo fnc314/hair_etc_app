@@ -26,6 +26,10 @@ class ApiController < ApplicationController
     request.headers["X-CSRF-Token"] = form_authenticity_token
   end
 
+  def angular_site_headers
+    headers["Access-Control-Allow-Origin"] = "*"
+  end
+
 end
 
 # Work here comes from https://github.com/jamesotron/Blogomat/blob/master/app/controllers/api_controller.rb

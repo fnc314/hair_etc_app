@@ -4,6 +4,7 @@ HairEtcApp::Application.routes.draw do
     resource :appointments, only: [:create]
     get 'appointments', :to => 'appointments#index'
     resource :sessions, only: [:create]
+    get 'website/stylists/all', :to => 'website#all_stylists'
   end
 
   root to: 'home#index'

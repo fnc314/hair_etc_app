@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20140419085128) do
 
   create_table "offerings", force: true do |t|
     t.string   "name"
-    t.float    "price",      default: 0.0
+    t.decimal  "price",      precision: 4, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -70,7 +70,15 @@ ActiveRecord::Schema.define(version: 20140419085128) do
   create_table "stylists", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "phone",      default: "4127219550"
+    t.string   "phone",                   default: "4127219550"
+    t.integer  "years",                   default: 0
+    t.string   "title",                   default: "Stylist"
+    t.string   "bio_short",   limit: 175
+    t.text     "bio_full"
+    t.text     "schedule",                default: ["Saturday"],                                                                         null: false, array: true
+    t.text     "specialties",             default: [],                                                                                   null: false, array: true
+    t.string   "profile_pic",             default: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/stylist_example_img.jpg"
+    t.text     "photos",                  default: [],                                                                                   null: false, array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
