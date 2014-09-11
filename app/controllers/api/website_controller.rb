@@ -15,4 +15,13 @@ class Api::WebsiteController < ApiController
     end
   end
 
+  def stylist
+    @stylist = Stylist.find_by(first_name: params["first_name"])
+    respond_to do |f|
+      f.json {
+        render :json => @stylist
+      }
+    end
+  end
+
 end
