@@ -6,6 +6,7 @@ HairEtcApp::Application.routes.draw do
     resource :sessions, only: [:create]
     get 'website/stylists/all', :to => 'website#all_stylists'
     get 'website/stylist/:first_name', :to => 'website#stylist', as: 'specific_stylist'
+    get 'website/offerings/all', :to => 'website#all_offerings', as: 'offerings_list'
   end
 
   root to: 'home#index'
@@ -28,6 +29,7 @@ end
 #               api_sessions POST   /api/sessions(.:format)                             api/sessions#create {:format=>:json}
 #   api_website_stylists_all GET    /api/website/stylists/all(.:format)                 api/website#all_stylists {:format=>:json}
 #       api_specific_stylist GET    /api/website/stylist/:first_name(.:format)          api/website#stylist {:format=>:json}
+#         api_offerings_list GET    /api/website/offerings/all(.:format)                api/website#offerings {:format=>:json}
 #                       root GET    /                                                   home#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new
 #             client_session POST   /clients/sign_in(.:format)                          devise/sessions#create
