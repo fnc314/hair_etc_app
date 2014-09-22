@@ -4,11 +4,11 @@ class Api::WebsiteController < ApiController
   skip_before_filter :authenticate_client_from_token!
   before_filter :angular_site_headers
 
+  # Always exclude: "created_at", "updated_at", "phone" from queries for stylists
+  # Always exclude: "created_at", "updated_at" from queries for offerings
 
   # Method to return the json object of all stylists
   # File From: angular-HairEtcPittsburgh/app/stylists/stylists.json
-  # Always exclude: "created_at", "updated_at", "phone" from queries for stylists
-  # Always exclude: "created_at", "updated_at" from queries for offerings
   def all_stylists
     @stylists = Stylist.all.to_a
     respond_to do |f|
@@ -34,6 +34,11 @@ class Api::WebsiteController < ApiController
         render :json => @offerings, only: ["name", "price"]
       }
     end
+  end
+
+  # Set up ActionMailer using this method and the supplied `request`
+  def mailer
+    puts request
   end
 
 end
