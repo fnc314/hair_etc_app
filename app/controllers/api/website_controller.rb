@@ -38,7 +38,11 @@ class Api::WebsiteController < ApiController
 
   # Set up ActionMailer using this method and the supplied `request`
   def mailer
-    puts request
+    respond_to do |f|
+      f.json {
+        puts request
+      }
+    end
   end
 
 end
