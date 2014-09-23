@@ -54,11 +54,11 @@ group :development, :test do
   gem 'rspec-rails'
 
   gem 'launchy'
-  
+
   gem 'database_cleaner'
-  
+
   gem 'rb-fsevent'
-  
+
   gem 'guard-rspec'
 end
 
@@ -71,6 +71,8 @@ gem 'rails_12factor', group: :production
 gem 'devise'
 
 gem 'dotenv-rails'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 # gem 'simple_token_authentication'
 
