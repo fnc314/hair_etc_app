@@ -27,7 +27,7 @@ class ApiController < ApplicationController
   end
 
   def angular_site_headers
-    headers["Access-Control-Allow-Origin"] = "*"
+    request.headers["Access-Control-Allow-Origin"] = "*"
   end
 
 end
