@@ -38,7 +38,6 @@ class Api::WebsiteController < ApiController
 
   # Set up ActionMailer using this method and the supplied `request`
   def mailer
-    request.header['Access-Control-Allow-Origin']='*'
     puts request
     respond_to do |f|
       f.json {
