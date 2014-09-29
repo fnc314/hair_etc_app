@@ -37,7 +37,7 @@ class Api::WebsiteController < ApiController
   end
 
   # Set up ActionMailer using this method and the supplied `request`
-  ```
+  '''
     This method needs to do 3 things:
       1) Send email to Hair Etc
       2) Send "Thank You" email to visitor
@@ -45,12 +45,13 @@ class Api::WebsiteController < ApiController
     There needs to be verification logic to ensure that emails are infact sent 
     (at least to Hair Etc) before responding to Angular
     -> Response to client is decent
-  ```
+  '''
+
   def mailer
     # call ActionMailer and pass to it entire params hash
     ContactMialer.contactUs_email(params).deliver # this sends email to Hair Etc
 
-    ContactMailer.ThankYou_email(params).deliver # this sends email to guest
+    # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
 
   end
 
