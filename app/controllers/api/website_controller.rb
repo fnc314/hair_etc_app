@@ -60,7 +60,7 @@ class Api::WebsiteController < ApiController
     if ApiController.api_mailer(p,d) # this sends email to Hair Etc
       respond_to do |f|
         f.json {
-          render :json => {success: true, message: "SENT!  Thanks for the feedback!"}
+          render :json => {success: true, message: "Thanks for the feedback!"}
         }
       end
     end
