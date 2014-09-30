@@ -56,7 +56,14 @@ class Api::WebsiteController < ApiController
     puts p
     puts "&" * 8
     puts d
-    ApiController.api_mailer(p,d) # this sends email to Hair Etc
+    puts "\n"
+    if ApiController.api_mailer(p,d) # this sends email to Hair Etc
+      respond_to do |f|
+        f.json {
+          render :json => {success: true, message: "SENT!  Thanks for the feedback!"}
+        }
+      end
+    end
 
 
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
