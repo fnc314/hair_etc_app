@@ -7,6 +7,10 @@ class ApiController < ApplicationController
   before_filter :csrf_token
   respond_to :json
 
+  def mailer(params)
+    ContactMialer.contactUs_email(params).deliver
+  end
+
   protected
 
   def authenticate_client_from_token!
@@ -26,9 +30,7 @@ class ApiController < ApplicationController
     request.headers["X-CSRF-Token"] = form_authenticity_token
   end
 
-  def angular_site_headers
-    request.headers["Access-Control-Allow-Origin"] = "*"
-  end
+  
 
 end
 

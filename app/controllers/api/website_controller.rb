@@ -2,7 +2,6 @@ class Api::WebsiteController < ApiController
 
   respond_to :json
   skip_before_filter :authenticate_client_from_token!
-  before_filter :angular_site_headers
 
   # Always exclude: "created_at", "updated_at", "phone" from queries for stylists
   # Always exclude: "created_at", "updated_at" from queries for offerings
@@ -47,9 +46,9 @@ class Api::WebsiteController < ApiController
     -> Response to client is decent
   '''
 
-  def mailer
+  def mailer(params)
     # call ActionMailer and pass to it entire params hash
-    ContactMialer.contactUs_email(params).deliver # this sends email to Hair Etc
+    ApiController.mailer(params) # this sends email to Hair Etc
 
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
 

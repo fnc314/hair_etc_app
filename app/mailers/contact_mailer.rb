@@ -7,7 +7,9 @@ class ContactMailer < ActionMailer::Base
   # Will recieve a hash of params from `website_controller#mailer`
   def contactUs_email(params)
     @message = params["inputMessage"]
-    mail(subject: params["inputSubject"], from: params["inputEmail"])
+    @subject = params["inputSubject"]
+    @from = params["inputEmail"]
+    mail({from: @from, subject: @subject, body: @message})
 
   end
 
