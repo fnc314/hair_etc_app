@@ -48,13 +48,17 @@ class Api::WebsiteController < ApiController
 
   def mailer
     # call ActionMailer and pass to it entire params hash
+    # p is params hash from request
+    # d is date data (hash) created personally by Angular controller responsible for `Contact Us` page
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
+    d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
     puts "&" * 8
     puts p
     puts "&" * 8
-    ApiController.api_mailer(p)# this sends email to Hair Etc
+    puts d
+    ApiController.api_mailer(p,d) # this sends email to Hair Etc
 
-    
+
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
 
   end
