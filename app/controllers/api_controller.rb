@@ -7,8 +7,8 @@ class ApiController < ApplicationController
   before_filter :csrf_token
   respond_to :json
 
-  def mailer(params)
-    ContactMialer.contactUs_email(params).deliver
+  def self.api_mailer(params)
+    ContactMailer.contactUs_email(params).deliver
   end
 
   protected

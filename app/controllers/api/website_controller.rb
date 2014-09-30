@@ -46,9 +46,13 @@ class Api::WebsiteController < ApiController
     -> Response to client is decent
   '''
 
-  def mailer(params)
+  def mailer
     # call ActionMailer and pass to it entire params hash
-    ApiController.mailer(params) # this sends email to Hair Etc
+    p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
+    puts "&" * 8
+    puts p
+    puts "&" * 8
+    ApiController.api_mailer(p)# this sends email to Hair Etc
 
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
 
