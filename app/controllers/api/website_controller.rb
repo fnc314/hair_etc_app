@@ -52,15 +52,19 @@ class Api::WebsiteController < ApiController
     # d is date data (hash) created personally by Angular controller responsible for `Contact Us` page
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
     d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
-    puts "&" * 8
-    puts p
-    puts "&" * 8
-    puts d
-    puts "\n"
-    if ApiController.api_mailer(p,d) # this sends email to Hair Etc
+
+    if !ApiController.api_mailer(p,d) # this sends email to Hair Etc
       respond_to do |f|
+        @response = {success: true, message: "Thanks for the feedback!"}
         f.json {
-          render :json => {success: true, message: "Thanks for the feedback!"}
+          render :json => @response
+        }
+      end
+    else
+      respond_to do |f|
+        @response = {success: false, message: "Sorry.  There was an issue.  Call instead? "}
+        f.json {
+          render :json => @response
         }
       end
     end
