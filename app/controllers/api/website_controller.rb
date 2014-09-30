@@ -53,7 +53,7 @@ class Api::WebsiteController < ApiController
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
     d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
 
-    if !ApiController.api_mailer(p,d) # this sends email to Hair Etc
+    if ApiController.api_mailer(p,d) # this sends email to Hair Etc
       respond_to do |f|
         @response = {success: true, message: "Thanks for the feedback!"}
         f.json {
