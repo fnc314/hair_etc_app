@@ -54,6 +54,7 @@ class Api::WebsiteController < ApiController
     puts "&" * 8
     ApiController.api_mailer(p)# this sends email to Hair Etc
 
+    
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
 
   end

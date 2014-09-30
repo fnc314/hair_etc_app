@@ -4,6 +4,8 @@
   <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
 </head>
 <body>
-  <%= @message %>
+  <% @body.each_pair do |k,v| %>
+    <p><%= k %> = <%= v %></p>
+  <% end %>
 </body>
 </html>
