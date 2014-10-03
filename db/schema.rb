@@ -73,12 +73,10 @@ ActiveRecord::Schema.define(version: 20140419085128) do
     t.string   "phone",                   default: "4127219550"
     t.integer  "years",                   default: 0
     t.string   "title",                   default: "Stylist"
-    t.string   "bio_short",   limit: 175
-    t.text     "bio_full"
+    t.string   "tag_line",    limit: 175
     t.text     "schedule",                default: ["Saturday"],                                                                         null: false, array: true
     t.text     "specialties",             default: [],                                                                                   null: false, array: true
     t.string   "profile_pic",             default: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/stylist_example_img.jpg"
-    t.text     "photos",                  default: [],                                                                                   null: false, array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
