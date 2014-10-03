@@ -12,7 +12,7 @@ class Api::WebsiteController < ApiController
     @stylists = Stylist.all.to_a
     respond_to do |f|
       f.json {
-        render :json => @stylists, except: ["created_at", "updated_at", "bio_full", "phone", "photos"]
+        render :json => @stylists, except: ["created_at", "updated_at", "phone"]
       }
     end
   end
@@ -21,7 +21,7 @@ class Api::WebsiteController < ApiController
     @stylist = Stylist.find_by(first_name: params["first_name"])
     respond_to do |f|
       f.json {
-        render :json => @stylist, except: ["created_at", "updated_at", "bio_short", "phone"]
+        render :json => @stylist, except: ["created_at", "updated_at", "phone"]
       }
     end
   end
