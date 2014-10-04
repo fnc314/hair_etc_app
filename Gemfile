@@ -74,6 +74,11 @@ gem 'dotenv-rails'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+# AMAZON GEMS
+gem 'aws-sdk'
+
+gem 'aws-s3'
+
 # gem 'simple_token_authentication'
 
 # Use ActiveModel has_secure_password
