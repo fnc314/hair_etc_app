@@ -6,6 +6,7 @@ HairEtcApp::Application.routes.draw do
     resource :sessions, only: [:create]
     get 'website/stylists/all', :to => 'website#all_stylists', as: 'all_stylists'
     get 'website/offerings/all', :to => 'website#all_offerings', as: 'offerings_list'
+    get 'website/images/products', :to => 'website#all_products', as: 'product_images'
     post 'website/mailer', :to => 'website#mailer', as: 'website_mailer'
   end
 

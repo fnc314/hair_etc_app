@@ -26,6 +26,7 @@ class Api::WebsiteController < ApiController
     end
   end
 
+  # Do I need this? -> Price list hard-coded into HTML is not ideal but may be easiest
   def all_offerings
     @offerings = Offering.all.to_a
     respond_to do |f|
@@ -35,16 +36,34 @@ class Api::WebsiteController < ApiController
     end
   end
 
+  # Method to respond and serve up urls for product photos loaded to amazon
+  def all_products
+    # @productPhotos = S3_BUCKET.objects.with_prefix('images/products/').collect(&:key)
+    # puts @productPhotos
+    @productPhotos = {photoUrls: []}
+    S3_BUCKET.objects.with_prefix('images/products/').each do |obj|
+      if obj.content_length > 0
+        @productPhotos[:photoUrls].push(obj.key)
+      end
+    end
+    respond_to do |f|
+      f.json {
+        render :json => @productPhotos
+      }
+    end
+  end
+
+
+  ################################### MAILER ###################################
   # Set up ActionMailer using this method and the supplied `request`
-  '''
-    This method needs to do 3 things:
-      1) Send email to Hair Etc
-      2) Send "Thank You" email to visitor
-      3) Return JSON with success messages back to Angular site
-    There needs to be verification logic to ensure that emails are infact sent 
-    (at least to Hair Etc) before responding to Angular
-    -> Response to client is decent
-  '''
+  
+  # This method needs to do 3 things:
+  #   1) Send email to Hair Etc
+  #   2) Send "Thank You" email to visitor <- Not implemented yet!
+  #   3) Return JSON with success messages back to Angular site
+  # There needs to be verification logic to ensure that emails are infact sent 
+  # (at least to Hair Etc) before responding to Angular
+  # -> Response to client is decent
 
   def mailer
     # call ActionMailer and pass to it entire params hash
@@ -71,7 +90,7 @@ class Api::WebsiteController < ApiController
 
 
     # ContactMailer.ThankYou_email(params).deliver # this sends email to guest
-
   end
+  ################################### MAILER ###################################
 
 end
