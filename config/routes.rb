@@ -7,6 +7,8 @@ HairEtcApp::Application.routes.draw do
     get 'website/stylists/all', :to => 'website#all_stylists', as: 'all_stylists'
     get 'website/offerings/all', :to => 'website#all_offerings', as: 'offerings_list'
     get 'website/images/products', :to => 'website#all_products', as: 'product_images'
+    get 'website/images/intext', :to => 'website#int_ext_photos', as: 'int_ext_images'
+    get 'website/images/workSamples', :to => 'website#work_sample_photos', as: 'work_sample_photos'
     post 'website/mailer', :to => 'website#mailer', as: 'website_mailer'
   end
 
@@ -24,12 +26,15 @@ HairEtcApp::Application.routes.draw do
   end
 
 end
+
 #                     Prefix Verb   URI Pattern                                         Controller#Action
 #           api_appointments POST   /api/appointments(.:format)                         api/appointments#create {:format=>:json}
 #                            GET    /api/appointments(.:format)                         api/appointments#index {:format=>:json}
 #               api_sessions POST   /api/sessions(.:format)                             api/sessions#create {:format=>:json}
 #           api_all_sytlists GET    /api/website/stylists/all(.:format)                 api/website#all_stylists {:format=>:json}
 #         api_offerings_list GET    /api/website/offerings/all(.:format)                api/website#offerings {:format=>:json}
+#         api_product_images GET    /api/website/images/products(.:format)              api/website#all_products {:format=>:json}
+#         api_int_ext_images GET    /api/website/images/intext(.:format)                api/website#int_ext_photos {:format=>:json}
 #         api_website_mailer POST   /api/website/mailer(.:format)                       api/website#mailer {:format=>:json}
 #                       root GET    /                                                   home#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new

@@ -41,14 +41,31 @@ class Api::WebsiteController < ApiController
     # @productPhotos = S3_BUCKET.objects.with_prefix('images/products/').collect(&:key)
     # puts @productPhotos
     @productPhotos = {photoUrls: []}
+    urlBaseString = 'https://s3.amazonaws.com/HairEtcPittsburgh/'
     S3_BUCKET.objects.with_prefix('images/products/').each do |obj|
       if obj.content_length > 0
-        @productPhotos[:photoUrls].push(obj.key)
+        @productPhotos[:photoUrls].push(urlBaseString + obj.key)
       end
     end
     respond_to do |f|
       f.json {
         render :json => @productPhotos
+      }
+    end
+  end
+
+  # Method to respond and serve up urls for exterior_interior photos loaded to amazon
+  def int_ext_photos
+    @intextPhotos = {photoUrls: []}
+    urlBaseString = 'https://s3.amazonaws.com/HairEtcPittsburgh/'
+    S3_BUCKET.objects.with_prefix('images/exterior_interior/').each do |obj|
+      if obj.content_length > 0
+        @intextPhotos[:photoUrls].push(urlBaseString + obj.key)
+      end
+    end
+    respond_to do |f|
+      f.json {
+        render :json => @intextPhotos
       }
     end
   end
