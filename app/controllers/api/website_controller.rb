@@ -47,7 +47,7 @@ class Api::WebsiteController < ApiController
   # Loads a random URL from amazon query to be default big-picture source
   def work_sample_photos
     @workSamplePhotos = {random_photo: '', photoUrls: []}
-    @workSamplePhotos[:photoUrls] = amazonQuery # private method => Returns array
+    @workSamplePhotos[:photoUrls] = amazonQuery('images/work_samples/') # private method => Returns array
     @workSamplePhotos[:random_photo] = @workSamplePhotos[:photoUrls].sample # Random URL for page load
     respond_to do |f|
       f.json {
@@ -99,9 +99,8 @@ class Api::WebsiteController < ApiController
 
   # Method that actually calls amazon and returns desired result
   # Returns array of strings `urls` of each objects public url
-  def amazonQuery
-    # remove first entry which never points to a picture
-    urls = S3_BUCKET.objects.with_prefix('images/work_samples/').collect(&:public_url).drop(1)
+  def amazonQuery(base_str)
+    urls = S3_BUCKET.objects.with_prefix(base_str).collect(&:public_url).drop(1) # remove first entry; equals `base_str`
     urls.map! { |obj| obj.to_s } # Turn URI objects to String objects
     return urls
   end
