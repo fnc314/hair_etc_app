@@ -17,15 +17,6 @@ class Api::WebsiteController < ApiController
     end
   end
 
-  def stylist
-    @stylist = Stylist.find_by(first_name: params["first_name"])
-    respond_to do |f|
-      f.json {
-        render :json => @stylist, except: ["created_at", "updated_at", "phone"]
-      }
-    end
-  end
-
   # Do I need this? -> Price list hard-coded into HTML is not ideal but may be easiest
   def all_offerings
     @offerings = Offering.all.to_a
@@ -56,8 +47,8 @@ class Api::WebsiteController < ApiController
   # Loads a random URL from amazon query to be default big-picture source
   def work_sample_photos
     @workSamplePhotos = {random_photo: '', photoUrls: []}
-    @workSamplePhotos[:photoUrls] = amazonQuery
-    @workSamplePhotos[:random_photo] = @workSamplePhotos[:photoUrls].sample
+    @workSamplePhotos[:photoUrls] = amazonQuery # private method => Returns array
+    @workSamplePhotos[:random_photo] = @workSamplePhotos[:photoUrls].sample # Random URL for page load
     respond_to do |f|
       f.json {
         render :json => @workSamplePhotos
