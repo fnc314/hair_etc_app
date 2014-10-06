@@ -70,6 +70,21 @@ class Api::WebsiteController < ApiController
     end
   end
 
+  # Method to respond and serve up urls for exterior_interior photos loaded to amazon
+  def work_sample_photos
+    @workSamplePhotos = {photoUrls: []}
+    urlBaseString = 'https://s3.amazonaws.com/HairEtcPittsburgh/'
+    S3_BUCKET.objects.with_prefix('images/work_samples/').each do |obj|
+      if obj.content_length > 0
+        @workSamplePhotos[:photoUrls].push(urlBaseString + obj.key)
+      end
+    end
+    respond_to do |f|
+      f.json {
+        render :json => @workSamplePhotos
+      }
+    end
+  end
 
   ################################### MAILER ###################################
   # Set up ActionMailer using this method and the supplied `request`
