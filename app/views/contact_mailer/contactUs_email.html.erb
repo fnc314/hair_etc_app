@@ -9,30 +9,30 @@
 
     <table>
       <tr>
-        <th colspan="2">Customer Contact</th>
+        <th colspan="2"><h3>Customer Contact</h3></th>
       </tr>
       <tr>
-        <td>Customer Name:</td>
+        <td><strong>Name:</strong></td>
         <td><%= @body[:guest_name] %></td>
       </tr>
       <tr>
-        <td>Customer Email:</td>
+        <td><strong>Email:</strong></td>
         <td>
           <a href="mailto:<%= @body[:guest_email] %>" target="_blank"><%= @body[:guest_email] %></a>
         </td>
       </tr>
       <tr>
-        <td>Date</td>
+        <td><strong>Date:</strong></td>
         <td><%= @body[:request_date] %></td>
       </tr>
       <tr>
-        <td colspan="2">Contact Subject</td>
+        <td colspan="2"><strong>Subject:</strong></td>
       </tr>
       <tr>
         <td colspan="2"><%= @subject %></td>
       </tr>
       <tr>
-        <td colspan="2">Message:</td>
+        <td colspan="2"><strong>Message:</strong></td>
       </tr>
       <tr>
         <td colspan="2"><%= @body[:guest_message] %></td>

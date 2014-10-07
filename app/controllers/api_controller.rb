@@ -12,6 +12,8 @@ class ApiController < ApplicationController
   # d is date of request
   def self.api_mailer(p,d)
     ContactMailer.contactUs_email(p,d).deliver
+    # Immediately after email is sent to Hair Etc... send a thank you email to client
+    ContactMailer.thankYou_email(p,d).deliver
   end
 
   protected
