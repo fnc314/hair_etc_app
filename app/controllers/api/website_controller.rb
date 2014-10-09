@@ -46,9 +46,8 @@ class Api::WebsiteController < ApiController
   # Method to respond and serve up urls for exterior_interior photos loaded to amazon
   # Loads a random URL from amazon query to be default big-picture source
   def work_sample_photos
-    @workSamplePhotos = {random_photo: '', photoUrls: []}
+    @workSamplePhotos = {photoUrls: []}
     @workSamplePhotos[:photoUrls] = amazonQuery('images/work_samples/') # private method => Returns array
-    @workSamplePhotos[:random_photo] = @workSamplePhotos[:photoUrls].sample # Random URL for page load
     respond_to do |f|
       f.json {
         render :json => @workSamplePhotos

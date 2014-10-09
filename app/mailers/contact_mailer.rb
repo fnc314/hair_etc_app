@@ -29,12 +29,20 @@ class ContactMailer < ActionMailer::Base
 
   private
 
+  # d is hash of values from JS
   def timestamp_sanitize(d)
     # Create DateTime object and use `strftime` like in other sections
-    timestamp = DateTime.new(d[:year].to_i, d[:month].to_i, d[:date].to_i, d[:hour].to_i, d[:minute].to_i).strftime("%a. %b. %d, %Y at %l:%M %p")
-    return timestamp
+    timestamp = DateTime.new(
+      d[:year].to_i, 
+      d[:month].to_i, 
+      d[:date].to_i, 
+      d[:hour].to_i, 
+      d[:minute].to_i)
+    timestampString = timestamp.strftime("%a. %b. %d, %Y at %l:%M %p")
+    return timestampString
   end
 
+  # p is params hash
   def body_sanitize(p)
     # Body oject (instance variable when called above) to populate email `<body>` tag
     body = {
