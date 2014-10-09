@@ -29,7 +29,6 @@ end
 #                            GET    /api/appointments(.:format)                         api/appointments#index {:format=>:json}
 #               api_sessions POST   /api/sessions(.:format)                             api/sessions#create {:format=>:json}
 #           api_all_sytlists GET    /api/website/stylists/all(.:format)                 api/website#all_stylists {:format=>:json}
-#         api_offerings_list GET    /api/website/offerings/all(.:format)                api/website#offerings {:format=>:json}
 #         api_website_mailer POST   /api/website/mailer(.:format)                       api/website#mailer {:format=>:json}
 #                       root GET    /                                                   home#index
 #         new_client_session GET    /clients/sign_in(.:format)                          devise/sessions#new
