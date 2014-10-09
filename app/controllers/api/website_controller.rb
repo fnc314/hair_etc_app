@@ -27,24 +27,7 @@ class Api::WebsiteController < ApiController
     end
   end
 
-  # Method to respond and serve up urls for exterior_interior photos loaded to amazon
-  def int_ext_photos
-    @intextPhotos = {photoUrls: []}
-    urlBaseString = 'https://s3.amazonaws.com/HairEtcPittsburgh/'
-    S3_BUCKET.objects.with_prefix('images/exterior_interior/').each do |obj|
-      if obj.content_length > 0
-        @intextPhotos[:photoUrls].push(urlBaseString + obj.key)
-      end
-    end
-    respond_to do |f|
-      f.json {
-        render :json => @intextPhotos
-      }
-    end
-  end
-
-  # Method to respond and serve up urls for exterior_interior photos loaded to amazon
-  # Loads a random URL from amazon query to be default big-picture source
+  # Method to respond and serve up urls for work_samples photos loaded to amazon
   def work_sample_photos
     @workSamplePhotos = {photoUrls: []}
     @workSamplePhotos[:photoUrls] = amazonQuery('images/work_samples/') # private method => Returns array
@@ -73,7 +56,7 @@ class Api::WebsiteController < ApiController
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
     d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
 
-    if ApiController.api_mailer(p,d) # this sends email to Hair Etc
+    if ApiController.api_mailer(p,d) # this sends email to Hair Etc and customer
       respond_to do |f|
         @response = {success: true, message: "Thanks for the feedback!"}
         f.json {
