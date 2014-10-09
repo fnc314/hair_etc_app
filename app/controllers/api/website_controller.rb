@@ -17,16 +17,6 @@ class Api::WebsiteController < ApiController
     end
   end
 
-  # Do I need this? -> Price list hard-coded into HTML is not ideal but may be easiest
-  def all_offerings
-    @offerings = Offering.all.to_a
-    respond_to do |f|
-      f.json {
-        render :json => @offerings, only: ["name", "price"]
-      }
-    end
-  end
-
   # Method to respond and serve up urls for work_samples photos loaded to amazon
   def work_sample_photos
     @workSamplePhotos = {photoUrls: []}

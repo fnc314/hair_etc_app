@@ -5,7 +5,6 @@ HairEtcApp::Application.routes.draw do
     get 'appointments', :to => 'appointments#index'
     resource :sessions, only: [:create]
     get 'website/stylists/all', :to => 'website#all_stylists', as: 'all_stylists'
-    get 'website/offerings/all', :to => 'website#all_offerings', as: 'offerings_list' # necessary?
     get 'website/images/workSamples', :to => 'website#work_sample_photos', as: 'work_sample_photos'
     post 'website/mailer', :to => 'website#mailer', as: 'website_mailer'
   end
