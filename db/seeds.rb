@@ -9,12 +9,30 @@ Stylist.all.each do |s|
   s.destroy
 end
 
-Stylist.create(first_name: "Theresa", last_name: "Colaizzi", years: 25, title: "Owner/Stylist", specialties: ["Corrective Color", "Men's Styles"], schedule: ["Wednesday", "Thursday", "Saturday"], tag_line: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus enim nisl, dictum semper arcu ornare viverra. Integer sit amet dui rutrum, ornare risus ut, maximus orci.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Theresa.png")
-Stylist.create(first_name: "Stacy (Carolyn)", last_name: "Funwella", years: 43, specialties: ["Perms"], schedule: ["Monday", "Thursday", "Friday", "Saturday"], tag_line: "Let me make your locks curly.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Stacy.png")
-Stylist.create(first_name: "Krista", last_name: "Vrana", years: 8, specialties: ["Fantasy Color"], schedule: ["Monday", "Friday", "Saturday"], tag_line: "I will fulfill your hair fantasy.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
-Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], tag_line: "I wanted to make the world beautiful so I became a stylist.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
-Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], tag_line: "Help me help you find your inner beauty!", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Chrissy.png")
-Stylist.create(first_name: "Sheri", last_name: "Humbert", years: 23, specialties: ["Long-Hair Services", "Formal Styling"], schedule: ["Friday", "Saturday"], tag_line: "Let me inspire you.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Sheri.png")
+Stylist.create(first_name: "Theresa", last_name: "Colaizzi", years: 25, title: "Owner/Stylist", 
+  specialties: ["Corrective Color", "Men's Styles"], schedule: ["Wednesday", "Thursday", "Saturday"], 
+  tag_line: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus enim nisl, dictum semper arcu ornare viverra.", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Theresa.png")
+Stylist.create(first_name: "Stacy (Carolyn)", last_name: "Funwella", years: 43, 
+  specialties: ["Perms"], schedule: ["Monday", "Thursday", "Friday", "Saturday"], 
+  tag_line: "Let me make your locks curly.", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Stacy.png")
+Stylist.create(first_name: "Krista", last_name: "Vrana", years: 8, 
+  specialties: ["Fantasy Color"], schedule: ["Monday", "Friday", "Saturday"], 
+  tag_line: "I will fulfill your hair fantasy.", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
+Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, 
+  specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], 
+  tag_line: "I wanted to make the world beautiful so I became a stylist.", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
+Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, 
+  specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], 
+  tag_line: "Help me help you find your inner beauty!", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Chrissy.png")
+Stylist.create(first_name: "Sheri", last_name: "Humbert", years: 23, 
+  specialties: ["Long-Hair Services", "Formal Styling"], schedule: ["Friday", "Saturday"], 
+  tag_line: "Let me inspire you.", 
+  profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Sheri.png")
 
 Offering.all.each do |s|
   s.destroy
