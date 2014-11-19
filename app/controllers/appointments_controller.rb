@@ -60,12 +60,11 @@ class AppointmentsController < ApplicationController
     appt = current_client.appointments.find(params[:id])
     # Trigger text message to stylist about requested changes
     # Trigger is done before edits so that the current appt.appt_date_time can
-    # be sent to the stylist wihtout wasting memory and storing the old date
+    # be sent to the stylist without wasting memory and storing the old date
     # and sending it separately.  The appt_date_time value is what the stylist
     # will use to determine exactly which appointment is being edited
     text_stylist_edit(current_client, appt)
     # Mimic format of create function
-    # Fixed issue with permit
     edited_appt = params.require(:appointment).permit(:stylist_id, :offering_ids => [])
     # extract new form for datetime from params <- stronger form
     edited_appt_datetime = params.require(:date).permit(:year, :month, :day, :hour, :minute)

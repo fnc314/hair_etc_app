@@ -60,7 +60,8 @@ end
 
 def create_appointments()
   puts "Creating Appointments"
-  (1..50).each do
+  (1..50).each do |i|
+    puts ">>> Creating Appointment #{i} <<<"
     a = Appointment.new()
     a.seed_data() # Instance Method defined in /app/models/appoitment.rb
     a.save

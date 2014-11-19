@@ -4,6 +4,10 @@ class Appointment < ActiveRecord::Base
   belongs_to :client
   belongs_to :stylist
 
+  # TODO: Remove code from controllers/appointments_controller.rb for linting/parsing
+  # params (Hash) of `DateTime` object from Create/Update methods
+  # CAN MAKE CLASS OR INSTANCE METHOD (INSTANCE METHOD REQUIRES USE OF `self.`)
+
   # Instance Methods used in db/seeds.rb on an INSTANCE of `Appointment` Class
 
   # Is called to assign 'random' a `appt_date_time` value to a given appointment
