@@ -6,6 +6,8 @@
 # ~$ rake db:seed
 # ```
 
+# TODO: Custom `rake` task to drop, create, migrate, and seed DB
+
 def create_stylists()
   puts "Creating Stylists"
   Stylist.create(first_name: "Theresa", last_name: "Colaizzi", years: 25, title: "Owner/Stylist", 
