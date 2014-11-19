@@ -18,5 +18,6 @@
 # Ignore .env file
 .env
 
-# Ignore seed file >> Protect Phone Numbers
-db/seeds.rb
+# Ignore seed/migration files >> Protect Phone Numbers
+/db/seeds.rb
+/db/migrate/*.rb

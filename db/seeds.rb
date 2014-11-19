@@ -33,7 +33,7 @@ def create_stylists()
     tag_line: "Let me inspire you.", 
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Sheri.png")
 end
-# :)
+
 def create_offerings()
   puts "Creating Offerings"
   Offering.create(name: "Cut/Style", price: 20.00)
