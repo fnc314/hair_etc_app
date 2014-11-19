@@ -19,4 +19,4 @@
 .env
 
 # Ignore seed file >> Protect Phone Numbers
-/db/seeds.rb
+db/seeds.rb
