@@ -4,7 +4,7 @@ class Appointment < ActiveRecord::Base
   belongs_to :client
   belongs_to :stylist
 
-  # Instance Methods used in hair_etc_app/db/seeds.rb
+  # Instance Methods used in db/seeds.rb on an INSTANCE of `Appointment` Class
 
   # Is called to assign 'random' a `appt_date_time` value to a given appointment
   def seed_date_maker()
@@ -33,6 +33,19 @@ class Appointment < ActiveRecord::Base
       new_off_id = ( (off1.id + off2.id + off3.id) / 3.0).round
       self.offerings = [Offering.find(new_off_id)]
     end
+  end
+
+  # Is called to assign 'random' `stylist_id` and `client_id` to a given appointment
+  def seed_client_stylist()
+    self.client_id = Client.all.sample.id
+    self.stylist_id = Stylist.all.sample.id
+  end
+
+  # Is called to assign 'random' seed data to a given appointment
+  def seed_data()
+    self.seed_client_stylist
+    self.seed_offering_assignment
+    self.seed_date_maker
   end
 
 end

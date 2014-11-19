@@ -62,10 +62,7 @@ def create_appointments()
   puts "Creating Appointments"
   (1..50).each do
     a = Appointment.new()
-    a.seed_date_maker() # Model Method
-    a.stylist_id = Stylist.all.sample.id
-    a.client_id = Client.all.sample.id
-    a.seed_offering_assignment() # Model Method
+    a.seed_data() # Instance Method defined in /app/models/appoitment.rb
     a.save
   end
 end
