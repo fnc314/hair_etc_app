@@ -1,9 +1,9 @@
 # To preserve prestine ID values in ActiveRecord, one must run the following:
 # ```bash
-# ~$ rake db:drop
-# ~$ rake db:create
-# ~$ rake db:migrate
-# ~$ rake db:seed
+# $ rake db:drop
+# $ rake db:create
+# $ rake db:migrate
+# $ rake db:seed
 # ```
 
 # TODO: Custom `rake` task to drop, create, migrate, and seed DB
@@ -12,7 +12,7 @@ def create_stylists()
   puts "Creating Stylists"
   Stylist.create(first_name: "Theresa", last_name: "Colaizzi", years: 25, title: "Owner/Stylist", 
     specialties: ["Corrective Color", "Men's Styles"], schedule: ["Wednesday", "Thursday", "Saturday"], 
-    tag_line: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc finibus enim nisl, dictum semper arcu ornare viverra.", 
+    tag_line: "I enjoy bringing out the beauty in others.", 
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Theresa.png")
   Stylist.create(first_name: "Stacy (Carolyn)", last_name: "Funwella", years: 43, 
     specialties: ["Perms"], schedule: ["Monday", "Thursday", "Friday", "Saturday"], 
@@ -20,7 +20,7 @@ def create_stylists()
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Stacy.png")
   Stylist.create(first_name: "Krista", last_name: "Vrana", years: 8, 
     specialties: ["Fantasy Color"], schedule: ["Monday", "Friday", "Saturday"], 
-    tag_line: "I will fulfill your hair fantasy.", 
+    tag_line: "I will make your hair dream come true.", 
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
   Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, 
     specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], 
@@ -28,7 +28,7 @@ def create_stylists()
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
   Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, 
     specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], 
-    tag_line: "Help me help you find your inner beauty!", 
+    tag_line: "Help me help you find your inner beauty.", 
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Chrissy.png")
   Stylist.create(first_name: "Sheri", last_name: "Humbert", years: 23, 
     specialties: ["Long-Hair Services", "Formal Styling"], schedule: ["Friday", "Saturday"], 

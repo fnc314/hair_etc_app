@@ -29,16 +29,6 @@ class Api::WebsiteController < ApiController
   end
 
   ################################### MAILER ###################################
-  # Set up ActionMailer using this method and the supplied `request`
-  
-  # This method needs to do 3 things:
-  #   1) Send email to Hair Etc
-  #   2) Send "Thank You" email to visitor <- Not implemented yet!
-  #   3) Return JSON with success messages back to Angular site
-  # There needs to be verification logic to ensure that emails are infact sent 
-  # (at least to Hair Etc) before responding to Angular
-  # -> Response to client is decent
-
   def mailer
     # call ActionMailer and pass to it entire params hash
     # p is params hash from request
@@ -72,9 +62,13 @@ class Api::WebsiteController < ApiController
   # Method that actually calls amazon and returns desired result
   # Returns array of strings `urls` of each objects public url
   def amazonQuery(base_str)
-    urls = S3_BUCKET.objects.with_prefix(base_str).collect(&:public_url).drop(1) # remove first entry; equals `base_str`
-    urls.map! { |obj| obj.to_s } # Turn URI objects to String objects
+    urls = S3_BUCKET.objects.with_prefix(base_str).collect.drop(1) # remove first entry; equals `base_str`
+    urls.map! do |obj|
+      puts obj.read
+      obj.public_url.to_s
+    end
+    # end{ |obj| obj.to_s } # Turn URI objects to String objects
     return urls
   end
-
+# (&:public_url)
 end
