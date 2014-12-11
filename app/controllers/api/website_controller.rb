@@ -62,13 +62,12 @@ class Api::WebsiteController < ApiController
   # Method that actually calls amazon and returns desired result
   # Returns array of strings `urls` of each objects public url
   def amazonQuery(base_str)
-    urls = S3_BUCKET.objects.with_prefix(base_str).collect.drop(1) # remove first entry; equals `base_str`
+    urls = S3_BUCKET.objects.with_prefix(base_str).collect(&:public_url).drop(1) # remove first entry; equals `base_str`
     urls.map! do |obj|
-      puts obj.read
-      obj.public_url.to_s
+      # Turn URI objects to String objects
+      obj.to_s
     end
-    # end{ |obj| obj.to_s } # Turn URI objects to String objects
     return urls
   end
-# (&:public_url)
+
 end
