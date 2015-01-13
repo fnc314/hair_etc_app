@@ -24,7 +24,7 @@ def create_stylists()
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
   Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, 
     specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], 
-    tag_line: "I wanted to make the world beautiful so I became a stylist.", 
+    tag_line: "As a stylist, I make the world beautiful.", 
     profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
   Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, 
     specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], 

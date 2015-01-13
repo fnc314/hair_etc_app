@@ -4,17 +4,19 @@ This project is a ground-up rewrite of the first project completed at WDI.  The 
 
 ## As an evolution of the first HairEtcApp
 
-For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Bootstrap CSS](www.getbootstrap.com) and [jQueary UI](www.jquearyui.com).  The redesign allowed me to vastly improve the user experience.
+For this version of the appointment management application, I integrated [Devise](https://github.com/plataformatec/devise) for Client management and continued using [Twilio](www.twilio.com) for direct SMS messages sent to stylists.  I also gave the service a complete overhaul, with a mobile-first redesign, using [Twitter Bootstrap](www.getbootstrap.com) and [jQueary UI](www.jquearyui.com).  The redesign allowed me to vastly improve the user experience.
 
 ## Truly Mobile First Design
 
-The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for mobile devices (mobile browsers or the dedicated Android app).  Using
+The best way for me to achieve a perfect mobile experience was to generate views that were specifically designed for mobile devices.  Therefore, I used D.R.Y. tactics and rendered partials that were designed for mobile devices (mobile browsers or the dedicated, WebView-based Android app).  Using
 
 ```ruby
 (request.user_agent =~ /Mobile/i).nil? ? 'desktopForm' : 'mobileForm'
 ```
 
-my Rails server (running on Heroku in Ruby (2.1.1)) can determine if the connecting device is mobile or desktop.  Thus, the data transmission to the client is only the necessary HTML with all of the specific stylings in tact.  By using this method, I am able to send only necessary data to devices and I can ensure the user experience no matter how users access the platform.
+the Rails server (running on Heroku in Ruby (2.1.1)) can determine if the connecting device is mobile or desktop.  Thus, the data transmission to the client is only the necessary HTML with all of the specific stylings in tact.  By using this method, I am able to send only necessary data to devices and I can ensure the user experience no matter how users access the platform.
+
+While there is use of [Twitter Bootstrap](www.getbootstrap.com), responsive design is handled by Ruby/JavaScript before CSS.  I consider this a viable (yet temporary) solution for the time being.
 
 ## Live Deployment
 
@@ -42,13 +44,13 @@ Notes:
 
 ## Future Upgrades
 
-As it stands, users do not have a profile page and therefore cannot change informaiton after registration.  Nor can customers remove their account.  These features will be added on gradually and will be ready before any live roll-out of the application.
+As it stands, users do not have a profile page and therefore cannot change informaiton after registration.  Nor can customers remove their account.  These features will be added on gradually.
 
 Over time I will be migrating the full functionality of this app to native Android.  I will recreate the views for Android application with the same consistent coloring but plan to handle all of the computation on the Android local device (thus reducing data usage even more).  The server I already built with Rails will handle the backend of the application and will receive the data from the Android app and handle the database.
 
 As the app stands, there is a strict requirement of Android 4.4 KitKat (it is in this version of Android that the `WebView` was moved to Chromium and therefore able to render the specific CSS stylings).  As I port the functionality to Android native, I will be able to lower the requirement to Android 2.3 Gingerbread (or Android 4.0 Ice Cream Sandwhich).
 
-Due to the immense popularity of the iOS platform I will also work on a direct port.  However, that work will follow the Android port.
+Due to the immense popularity of the iOS platform I will also work on a direct port.
 
 ## The Experience
 

@@ -4,6 +4,7 @@ HairEtcApp::Application.routes.draw do
     resource :appointments, only: [:create]
     get 'appointments', :to => 'appointments#index'
     resource :sessions, only: [:create]
+    # Abstract following route to use for Android App
     get 'website/stylists/all', :to => 'website#all_stylists', as: 'all_stylists'
     get 'website/images/workSamples', :to => 'website#work_sample_photos', as: 'work_sample_photos'
     post 'website/mailer', :to => 'website#mailer', as: 'website_mailer'
