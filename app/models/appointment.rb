@@ -6,7 +6,6 @@ class Appointment < ActiveRecord::Base
 
   # TODO: Remove code from controllers/appointments_controller.rb for linting/parsing
   # params (Hash) of `DateTime` object from Create/Update methods
-  # CAN MAKE CLASS OR INSTANCE METHOD (INSTANCE METHOD REQUIRES USE OF `self.`)
 
   # Instance Methods used in db/seeds.rb on an INSTANCE of `Appointment` Class
 

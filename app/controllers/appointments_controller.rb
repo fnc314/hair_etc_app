@@ -88,7 +88,7 @@ class AppointmentsController < ApplicationController
   def destroy
     appt = current_client.appointments.find(params[:id])
     # Trigger text message to stylist about requested cancellation
-    # text_stylist_delete(current_client, appt)
+    text_stylist_delete(current_client, appt)
     appt.destroy
     respond_to do |f|
       f.html { redirect_to client_appointments_path(current_client.id) }
