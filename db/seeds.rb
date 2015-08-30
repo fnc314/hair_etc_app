@@ -7,6 +7,7 @@
 # ```
 
 # TODO: Custom `rake` task to drop, create, migrate, and seed DB
+# SEE lib/tasks/database.rake :database_reseter
 
 def create_stylists()
     puts "Creating Stylists"
