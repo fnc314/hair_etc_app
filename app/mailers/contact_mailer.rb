@@ -48,6 +48,7 @@ class ContactMailer < ActionMailer::Base
     body = {
       guest_name: p["inputName"],
       guest_email: p["inputEmail"],
+      guest_message_subject: p["inputSubject"],
       guest_message: p["inputMessage"]
     }
     return body
