@@ -12,7 +12,7 @@ class Api::WebsiteController < ApiController
     @stylists = Stylist.all.to_a
     respond_to do |f|
       f.json {
-        render :json => @stylists, except: ["created_at", "updated_at", "phone"]
+        render :json => @stylists, except: ["created_at", "updated_at", "phone", "tag_line", "last_name", "years", "id", "title"]
       }
     end
   end
