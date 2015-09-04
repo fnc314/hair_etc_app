@@ -16,7 +16,8 @@ def create_stylists()
     Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], tag_line: "Help me help you find your inner beauty.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Chrissy.png")
     Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], tag_line: "As a stylist, I make the world beautiful.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
     Stylist.create(first_name: "Krista", last_name: "Vrana", years: 8, specialties: ["Fantasy Color"], schedule: ["Saturday"], tag_line: "I will make your hair dream come true.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
-    Stylist.create(first_name: "Susan", last_name: "Sachs", years: 20, specialties: ["All Purpose"], schedule: ["Monday", "Thursday", "Friday"], tag_line: "Lorem Ipsum Dorom.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Susan.png")
+    Stylist.create(first_name: "Susan", last_name: "Sachs", years: 20, specialties: ["Perms", "Men's Styles"], schedule: ["Monday", "Thursday", "Friday"], tag_line: "Lorem Ipsum Dorom.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Susan.png")
+    Stylist.create(first_name: "Tina", last_name: "Aubrey", years: 25, specialties: ["Foils", "HiLites/LoLites"], schedule: ["By Appointment Only"], tag_line: "Lorem Ipsum Dorom", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/stylist_example_img.jpg")
 end
 
 def create_offerings()
