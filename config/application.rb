@@ -21,7 +21,7 @@ module HairEtcApp
     # config.i18n.default_locale = :de
 
     # Mailer work
-    config.action_mailer.default_url_options = { host: "google.com" }
+    config.action_mailer.default_url_options = { host: "haieretcapp.herokuapp.com" }
 
     # The following comes from the docs for the gem `rack-cors` @ https://github.com/cyu/rack-cors
     config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors", :logger => (-> { Rails.logger }) do
