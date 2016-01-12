@@ -16,8 +16,8 @@ def create_stylists()
     Stylist.create(first_name: "Chrissy", last_name: "Darnley-West", years: 25, specialties: ["HiLites", "UpDo", "Make-Up Artistry"], schedule: ["Tuesday", "Wednesday", "Thursday", "Saturday"], tag_line: "Help me help you find your inner beauty.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Chrissy.png")
     Stylist.create(first_name: "Juneau", last_name: "Bowman", years: 32, specialties: ["Color"], schedule: ["Tuesday", "Wednesday", "Saturday"], tag_line: "As a stylist, I make the world beautiful.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Juneau.png")
     Stylist.create(first_name: "Krista", last_name: "Vrana", years: 8, specialties: ["Fantasy Color"], schedule: ["Saturday"], tag_line: "I will make your hair dream come true.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Krista.png")
-    Stylist.create(first_name: "Sandy", last_name: "Sachs", years: 20, specialties: ["Perms", "Men's Styles"], schedule: ["Monday", "Thursday", "Friday"], tag_line: "Lorem Ipsum Dorom.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Sandy.png")
-    Stylist.create(first_name: "Tina", last_name: "Aubrey", years: 20, specialties: ["Foils", "HiLites"], schedule: ["Appointment Only"], tag_line: "I don't want you to spend hundreds to like a million bucks!", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Tina.png")
+    # Stylist.create(first_name: "Sandy", last_name: "Sachs", years: 20, specialties: ["Perms", "Men's Styles"], schedule: ["Monday", "Thursday", "Friday"], tag_line: "Lorem Ipsum Dorom.", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Sandy.png")
+    Stylist.create(first_name: "Tina", last_name: "Aubrey", years: 20, specialties: ["Foils", "HiLites"], schedule: ["Monday", "Friday", "By Appointment"], tag_line: "I don't want you to spend hundreds to like a million bucks!", profile_pic: "https://s3.amazonaws.com/HairEtcPittsburgh/images/stylists/Tina.png")
 end
 
 def create_offerings()
