@@ -5,7 +5,7 @@ class AppointmentsController < ApplicationController
   before_filter :authenticate_client!
 
   def index
-    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).order("created_at DESC")
+    @appointment = current_client.appointments.includes(:stylist).includes(:offerings).order("appt_date_time DESC")
     @appointments = @appointment.to_a
     respond_to do |f|
       f.html
