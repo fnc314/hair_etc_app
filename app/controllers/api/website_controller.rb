@@ -1,5 +1,8 @@
 class Api::WebsiteController < ApiController
 
+  # Get 'net/http'
+  require 'net/http'
+
   respond_to :json
   skip_before_filter :authenticate_client_from_token!
 
@@ -33,15 +36,29 @@ class Api::WebsiteController < ApiController
     # call ActionMailer and pass to it entire params hash
     # p is params hash from request
     # d is date data (hash) created personally by Angular controller responsible for `Contact Us` page
+    # captcha is the captcha string that has to be okayed by Google before doing anything
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
     d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
+    captcha = params.require(:captcha)
+    puts "Captca code: ", captcha
 
-    if ApiController.api_mailer(p,d) # this sends email to Hair Etc and customer
-      respond_to do |f|
-        @response = {success: true, message: "Thanks for the feedback!"}
-        f.json {
-          render :json => @response
-        }
+    response = captcha_google_check(captcha)
+
+    if response.body["success"] 
+      if ApiController.api_mailer(p,d) # this sends email to Hair Etc and customer
+        respond_to do |f|
+          @response = {success: true, message: "Thanks for the feedback!"}
+          f.json {
+            render :json => @response
+          }
+        end
+      else
+        respond_to do |f|
+          @response = {success: false, message: "Sorry.  There was an issue.  Call instead? "}
+          f.json {
+            render :json => @response
+          }
+        end
       end
     else
       respond_to do |f|
@@ -68,6 +85,19 @@ class Api::WebsiteController < ApiController
       obj.to_s
     end
     return urls
+  end
+
+  # Call to Google
+  def captcha_google_check(captcha_code)
+    url = URI.parse('https://www.google.com/recaptcha/api/siteverify')
+    args = {
+      'secret' => ENV['GOOGLE_CAPTCHA_SECRET'],
+      'response' => captcha_code
+    }
+    response = Net::HTTP.post_form(url,args)
+    binding.pry
+    puts "Http Response: ", response.body
+    return response
   end
 
 end

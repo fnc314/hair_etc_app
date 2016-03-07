@@ -16,40 +16,45 @@
     <p>
       Thank you again and we look forward to helping expose your inner beauty in the future!
     </p>
+    <p>
+      Please note: Your email address was <strong>NOT</strong> stored in any database.  We protect your privacy by not storing anything.
+    </p>
 
     <p>
       Our email:
     </p>
     <table>
-      <tr>
-        <th colspan="2"><h3>Customer Contact</h3></th>
-      </tr>
-      <tr>
-        <td><strong>Name:</strong></td>
-        <td><%= @body[:guest_name] %></td>
-      </tr>
-      <tr>
-        <td><strong>Email:</strong></td>
-        <td>
-          <a href="mailto:<%= @body[:guest_email] %>" target="_blank"><%= @body[:guest_email] %></a>
-        </td>
-      </tr>
-      <tr>
-        <td><strong>Date:</strong></td>
-        <td><%= @body[:request_date] %></td>
-      </tr>
-      <tr>
-        <td colspan="2"><strong>Subject:</strong></td>
-      </tr>
-      <tr>
-        <td colspan="2"><%= @body[:guest_message_subject] %></td>
-      </tr>
-      <tr>
-        <td colspan="2"><strong>Message:</strong></td>
-      </tr>
-      <tr>
-        <td colspan="2"><%= @body[:guest_message] %></td>
-      </tr>
+      <tbody>
+        <tr>
+          <th colspan="2"><h3>Customer Contact</h3></th>
+        </tr>
+        <tr>
+          <td><strong>Name:</strong></td>
+          <td><%= @body[:guest_name] %></td>
+        </tr>
+        <tr>
+          <td><strong>Email:</strong></td>
+          <td>
+            <a href="mailto:<%= @body[:guest_email] %>" target="_blank"><%= @body[:guest_email] %></a>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Date:</strong></td>
+          <td><%= @body[:request_date] %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Subject:</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= @body[:guest_message_subject] %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Message:</strong></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= @body[:guest_message] %></td>
+        </tr>
+      </tbody>
     </table>
   </body>
 
