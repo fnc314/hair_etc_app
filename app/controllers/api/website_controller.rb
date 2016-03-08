@@ -40,7 +40,6 @@ class Api::WebsiteController < ApiController
     p = params.require(:form).permit(:inputEmail, :inputMessage, :inputSubject, :inputName)
     d = params.require(:date).permit(:day, :date, :month, :year, :hour, :minute) # date of request
     captcha = params.require(:captcha)
-    puts "Captca code: ", captcha
 
     response = captcha_google_check(captcha)
 
@@ -95,8 +94,6 @@ class Api::WebsiteController < ApiController
       'response' => captcha_code
     }
     response = Net::HTTP.post_form(url,args)
-    binding.pry
-    puts "Http Response: ", response.body
     return response
   end
 
